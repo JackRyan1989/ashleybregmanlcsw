@@ -1,10 +1,16 @@
 <script>
+	import Navbar from "../components/navbar.svelte"
+	import MainContent from '../components/main_content.svelte'
+	import Footer from '../components/footer.svelte'
 </script>
 
 <style>
 </style>
+
 <svelte:head>
-	<title></title>
+	<title>Ashley Bregman, LCSW</title>
 </svelte:head>
 
-<p>Lorem Ipsum</p>
+<Navbar/>
+<MainContent/>
+<Footer/>
