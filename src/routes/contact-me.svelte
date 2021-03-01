@@ -1,10 +1,16 @@
 <script>
-import Form from "../components/form.svelte"
+	import Navbar from "../components/navbar.svelte"
+	import Form from '../components/form.svelte'
+	import Footer from '../components/footer.svelte'
 </script>
 
 <style>
-
 </style>
 
-<h1>Contact Me</h1>
+<svelte:head>
+	<title>Contact Me</title>
+</svelte:head>
+
+<Navbar/>
 <Form/>
+<Footer/>

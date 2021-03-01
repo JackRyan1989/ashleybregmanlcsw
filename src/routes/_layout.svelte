@@ -21,7 +21,6 @@
   }
 
   .page-wrapper {
-    font-family: "Roboto", "sans-serif";
     background: white;
     height: 100vh;
     display: grid;
