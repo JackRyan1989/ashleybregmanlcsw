@@ -8,33 +8,46 @@
   </div>
   <ul class="link-wrapper">
     <li class="link-item">
-      <a class="link" id="first" href="/">Home</a>
+      <a class="link" id="first" href="#about" uk-scroll>My Practice</a>
     </li>
     <li class="link-item">
-      <a class="link" id="second" href="/contact-me">Contact</a>
+      <a class="link" id="second" href="#contact" uk-scroll>Contact Me</a>
     </li>
   </ul>
 </nav>
 
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+  }
+
   .nav-wrapper {
-    border-bottom: solid 1px lightgray;
     display: grid;
-    grid-template-columns: minmax(min-content, 1fr) minmax(10px, 1fr);
+    grid-template-columns: 2fr 2fr;
     place-items: center;
     text-align: center;
-    color: #aaa;
+    color: #aaa !important;
+    margin: 0% 2%;
+    background-color: #fff;
+    z-index: 10;
   }
 
   span {
     font-size: 1ex;
+    color: #aaa !important;
   }
 
   .title-wrapper {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 2.5% 0%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2.5% 0%;
   }
 
   .headshot {
@@ -42,13 +55,18 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 8em;
-    height: 8em;
+    width: 7rem;
+    height: 7rem;
     border-radius: 100%;
   }
 
   .name-card {
-      padding:15px;
+    padding: 15px;
+    font-size: 2em;
+    color: #aaa !important;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    letter-spacing: -2px;
   }
 
   .link-wrapper {
@@ -69,11 +87,11 @@
     text-decoration: none;
     font-weight: 800;
     text-transform: uppercase;
-    margin: 0 10px;
+    color: #aaa !important;
   }
 
   .link:hover {
-    color: #fff;
+    color: #fff !important;
   }
 
   .link:after {
