@@ -18,7 +18,7 @@
     Feel free to reach out to me at any time. My contact information is below,
     and you can also contact me using the web form below.
   </p>
-  <table class="uk-table uk-table-hover uk-table-justify uk-table-small">
+  <table class="uk-table uk-table-justify uk-table-small">
     <thead>
       <tr>
         <th>Phone Number</th>
@@ -26,11 +26,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr class="row-hover">
         <td>(215)-123-1234</td>
         <td
           ><a href="mailto:ashleybregman@gmail.com" class="link-item"
-            ><span uk-icon="mail" />ashleybregman[at]gmail[dot]com</a
+            ><span class="email-link" uk-icon="mail" /> ashleybregman[at]gmail[dot]com</a
           >
         </td>
       </tr>
@@ -99,7 +99,7 @@
 
   section {
     z-index: 2;
-    margin: 0% 2%;
+    margin: 7% 2% 0% 2%;
   }
 
   .non-lead {
@@ -117,5 +117,26 @@
 
   td {
     padding: 1.5% 1.5% !important;
+  }
+
+  .row-hover {
+    background-color: #fff;
+  }
+
+  .row-hover:hover {
+    color: #fff;
+    background-color: #aab9ad;
+    transition-property: background-color;
+    transition-duration: 0.25s;
+  }
+
+  .row-hover:hover .email-link,
+  .row-hover:hover .link-item {
+    color: #fff;
+  }
+
+  .email-link,
+  .link-item {
+    color: black;
   }
 </style>

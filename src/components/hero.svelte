@@ -17,6 +17,6 @@
 
 <style>
     .hero-image-container {
-        height: 50vh;
+        height: 100vh;
     }
 </style>
