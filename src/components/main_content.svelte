@@ -11,9 +11,9 @@
 </svelte:head>
 
 <section class="body-content">
-  <div uk-scrollspy="target: .content; cls: uk-animation-fade; delay: 250;">
+  <div uk-scrollspy="target: .content; cls: uk-animation-slide-left-medium; delay: 250;">
     <article class="content uk-article">
-      <h1 class="uk-heading-divider title uk-article-title" id="about">
+      <h1 class="title uk-article-title" id="about">
         Main Content Section
       </h1>
       <p class="uk-text-lead">
@@ -42,7 +42,6 @@
     outline: 0;
     font-size: 100%;
     vertical-align: baseline;
-    background: transparent;
   }
   
   .body-content {
@@ -61,9 +60,10 @@
   .title {
     max-width: 60ch;
     font-size: 2em;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
     letter-spacing: -2px;
+    border-bottom: solid 4px rgba(170, 185, 173, 0.75);
   }
 
   .uk-text-lead {

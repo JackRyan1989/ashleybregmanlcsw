@@ -4,12 +4,6 @@
   import Hero from "../components/hero.svelte";
   import MainContent from "../components/main_content.svelte";
   import Footer from "../components/footer.svelte";
-
-  let latestKnownScrollY = 0;
-
-  function onScroll() {
-    latestKnownScrollY = window.scrollY;
-  }
 </script>
 
 <svelte:head>
@@ -18,9 +12,11 @@
 
 <Navbar />
 <main>
-<Hero />
-  <MainContent />
-  <Form />
+  <Hero />
+  <section>
+    <MainContent />
+    <Form />
+  </section>
 </main>
 <Footer />
 

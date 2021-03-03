@@ -13,7 +13,10 @@
     outline: 0;
     font-size: 100%;
     vertical-align: baseline;
-    background: transparent;
+    /* background-image: url("https://picsum.photos/1000/1000/");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
   }
 
   @font-face {
@@ -38,7 +41,7 @@
     height: 100vh;
     display: grid;
     grid-template-columns: minmax(50px, 1fr);
-    grid-template-rows: min-content 1fr max-content;
+    grid-template-rows: min-content 1fr minmax(25px, max-content);
     gap: 1px;
   }
 

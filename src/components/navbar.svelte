@@ -64,8 +64,8 @@
     padding: 15px;
     font-size: 2em;
     color: #aaa !important;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
     letter-spacing: -2px;
   }
 
