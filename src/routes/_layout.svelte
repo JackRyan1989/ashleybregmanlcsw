@@ -13,10 +13,6 @@
     outline: 0;
     font-size: 100%;
     vertical-align: baseline;
-    /* background-image: url("https://picsum.photos/1000/1000/");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
   }
 
   @font-face {

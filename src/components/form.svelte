@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <svelte:head>
   <!-- UIkit CSS -->
   <link rel="stylesheet" href="/uikit-3.6.17/css/uikit.css" />
@@ -10,7 +7,22 @@
   <script src="/uikit-3.6.17/js/uikit-icons.min.js"></script>
 </svelte:head>
 
-<div uk-scrollspy="target: section; cls: uk-animation-slide-right-medium; delay: 250;">
+<script>
+  import { onMount } from "svelte";
+  export let handleClick;
+  handleClick = (event) => {
+      console.log("button clicked");
+    };
+
+  onMount(() => {
+    console.log("form mounted");
+  });
+</script>
+
+
+<div
+  uk-scrollspy="target: section; cls: uk-animation-slide-right-medium; delay: 250;"
+>
   <section>
     <!--Section Title-->
     <h1 class="title" id="contact">Contact Me</h1>
@@ -86,8 +98,12 @@
         </div>
       </div>
     </form>
-        <button class="uk-button uk-button-primary">Submit</button>
-        <button class="uk-button uk-button-danger">Cancel</button>
+    <button on:click={handleClick} class="uk-button uk-button-primary"
+      >Submit</button
+    >
+    <button on:click={handleClick} class="uk-button uk-button-danger"
+      >Cancel</button
+    >
   </section>
 </div>
 
@@ -111,7 +127,7 @@
   .title {
     max-width: 60ch;
     font-size: 2em;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 300;
     letter-spacing: -2px;
     border-bottom: solid 4px rgba(170, 185, 173, 0.75);
