@@ -10,7 +10,7 @@
   <title>Ashley Bregman, LCSW</title>
 </svelte:head>
 
-<Navbar />
+<Navbar/>
 <main>
   <Hero />
   <section>

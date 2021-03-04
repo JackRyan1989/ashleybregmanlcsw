@@ -34,8 +34,6 @@
     text-align: center;
     color: #aaa !important;
     margin: 0% 2%;
-    background-color: #fff;
-    z-index: 10;
   }
 
   span {
@@ -64,7 +62,7 @@
     padding: 15px;
     font-size: 2em;
     color: #aaa !important;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 300;
     letter-spacing: -2px;
   }
