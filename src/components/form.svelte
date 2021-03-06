@@ -1,9 +1,78 @@
 <script>
+  import { validateEmail } from '../validation/index'
   import { onMount } from "svelte";
+  let errors;
+  let cleanedMessage;
+  let success;
+  const nameErrorMessage = "Please enter your full name.";
+  const emailErrorMessage = "Please enter your email address.";
+  const phoneErrorMessage = "Please enter your phone number.";
+  const aboutErrorMessage = "Please tell me why you are contacting me.";
+  const fullNameErrorReg = new RegExp(/fullName/gmi);
+  const emailErrorReg = new RegExp(/email/gmi);
+  const phoneErrorReg = new RegExp(/phone/gmi);
+  const aboutErrorReg = new RegExp(/about/gmi);
+
+  let emailContent = {
+    fullName : "",
+    emailAddress : "",
+    phone : "",
+    about : "",
+  }
+
+  function validateAbout(input) {
+    const reg = new RegExp(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+(?<!\/\s\*)>/);
+    const found = reg.test(input);
+    return found;
+  }
+
+  export let handleChange;
+  handleChange = (event)=> {
+    emailContent[event.target.id] = event.target.value;
+  };
+
   export let handleClick;
-  handleClick = (event) => {
-      console.log("button clicked");
+  handleClick = async () => {
+      let invalid = validateAbout(emailContent.about);
+      if (invalid) {
+        errors = "Invalid Text Entered";
+        return errors;
+      }
+      try {
+        let validationErrors = await validateEmail(
+          emailContent
+        )
+        if (validationErrors.length) {
+          errors = errorHandler(validationErrors[0]);
+        } else {
+          errors = "";
+          success = true;
+        }
+      } catch (err) {
+        errors = err;
+      }
     };
+
+  export let handleClear;
+  handleClear = (event) => {
+    errors = "";
+    for (const property in emailContent) {
+      emailContent[property] = '';
+    }
+  }
+
+  function errorHandler(error) {
+    if (fullNameErrorReg.test(error)) {
+      cleanedMessage = nameErrorMessage;
+    } else if (emailErrorReg.test(error)) {
+      cleanedMessage = emailErrorMessage;
+    } else if (phoneErrorReg.test(error)) {
+      cleanedMessage = phoneErrorMessage;
+    } else if (aboutErrorReg.test(error)) {
+      cleanedMessage = aboutErrorMessage;
+    }
+    return cleanedMessage;
+  }
 
   onMount(() => {
     console.log("form mounted");
@@ -48,9 +117,11 @@
         <div class="uk-form-controls">
           <input
             class="uk-input"
-            id="name"
+            id="fullName"
             type="text"
             placeholder="First and Last name"
+            value={emailContent.fullName}
+            on:input={handleChange}
           />
         </div>
       </div>
@@ -59,9 +130,11 @@
         <div class="uk-form-controls">
           <input
             class="uk-input"
-            id="email"
+            id="emailAddress"
             type="email"
-            placeholder="Email Address"
+            placeholder="Email"
+            value={emailContent.emailAddress}
+            on:input={handleChange}
           />
         </div>
       </div>
@@ -73,6 +146,8 @@
             id="phone"
             type="tel"
             placeholder="Phone Number"
+            value={emailContent.phone}
+            on:input={handleChange}
           />
         </div>
       </div>
@@ -82,9 +157,11 @@
           <textarea
             rows="5"
             class="uk-textarea"
-            id="phone"
+            id="about"
             type="text"
-            placeholder="Tell me a little about yourself..."
+            placeholder="Tell me about yourself..."
+            value={emailContent.about}
+            on:input={handleChange}
           />
         </div>
       </div>
@@ -92,9 +169,14 @@
     <button on:click={handleClick} class="uk-button uk-button-primary"
       >Submit</button
     >
-    <button on:click={handleClick} class="uk-button uk-button-danger"
+    <button on:click={handleClear} class="uk-button uk-button-danger"
       >Cancel</button
     >
+    {#if errors}
+    <p class:errors>{errors}</p>
+    {:else if success}
+    <p class:success>Much Success!</p>
+    {/if}
   </section>
 </div>
 
@@ -148,4 +230,13 @@
   .link-item {
     color: black;
   }
+
+  .errors {
+    background-color: rgba(220, 0, 0, 0.4)
+  }
+
+  .success {
+    background-color: rgba(0, 255, 0, 0.4)
+  }
+
 </style>
