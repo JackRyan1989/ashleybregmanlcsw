@@ -120,4 +120,39 @@
     visibility: visible;
     height: 100%;
   }
+
+  /* Phone Screens, Landscape and Portrait modes */
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .headshot {
+      display: none;
+    }
+
+    .link {
+      padding: 10px;
+      font-size: 0.75em;
+    }
+
+    .link:focus {
+      color: #fff !important;
+    }
+
+    .link:focus:after {
+      opacity: 1;
+      visibility: visible;
+      height: 100%;
+    }
+
+    /* Tablet */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+      .link:focus {
+        color: #fff !important;
+      }
+
+      .link:focus:after {
+        opacity: 1;
+        visibility: visible;
+        height: 100%;
+      }
+    }
+  }
 </style>

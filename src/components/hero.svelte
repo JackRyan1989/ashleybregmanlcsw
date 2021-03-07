@@ -47,4 +47,16 @@
     font-weight: 300;
     letter-spacing: -2px;
   }
+
+   /* Phone Screens, Landscape and Portrait modes */
+   @media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    h1 {
+      font-size: 3em;
+    }
+}
+
+
 </style>

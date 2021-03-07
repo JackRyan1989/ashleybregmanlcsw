@@ -1,65 +1,65 @@
 <script>
-  import { validateEmail } from '../validation/index'
+  import { validateEmail } from "../validation/index";
   import { onMount } from "svelte";
   let errors;
   let cleanedMessage;
-  let success;
+  let success = false;
   const nameErrorMessage = "Please enter your full name.";
   const emailErrorMessage = "Please enter your email address.";
   const phoneErrorMessage = "Please enter your phone number.";
   const aboutErrorMessage = "Please tell me why you are contacting me.";
-  const fullNameErrorReg = new RegExp(/fullName/gmi);
-  const emailErrorReg = new RegExp(/email/gmi);
-  const phoneErrorReg = new RegExp(/phone/gmi);
-  const aboutErrorReg = new RegExp(/about/gmi);
+  const fullNameErrorReg = new RegExp(/fullName/gim);
+  const emailErrorReg = new RegExp(/email/gim);
+  const phoneErrorReg = new RegExp(/phone/gim);
+  const aboutErrorReg = new RegExp(/about/gim);
 
   let emailContent = {
-    fullName : "",
-    emailAddress : "",
-    phone : "",
-    about : "",
-  }
+    fullName: "",
+    emailAddress: "",
+    phone: "",
+    about: "",
+  };
 
   function validateAbout(input) {
-    const reg = new RegExp(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+(?<!\/\s\*)>/);
+    const reg = new RegExp(
+      /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+(?<!\/\s\*)>/
+    );
     const found = reg.test(input);
     return found;
   }
 
   export let handleChange;
-  handleChange = (event)=> {
+  handleChange = (event) => {
     emailContent[event.target.id] = event.target.value;
   };
 
   export let handleClick;
   handleClick = async () => {
-      let invalid = validateAbout(emailContent.about);
-      if (invalid) {
-        errors = "Invalid Text Entered";
-        return errors;
+    let invalid = validateAbout(emailContent.about);
+    if (invalid) {
+      errors = "Invalid Text Entered";
+      return errors;
+    }
+    try {
+      let validationErrors = await validateEmail(emailContent);
+      if (validationErrors.length) {
+        errors = errorHandler(validationErrors[0]);
+      } else {
+        errors = "";
+        success = true;
       }
-      try {
-        let validationErrors = await validateEmail(
-          emailContent
-        )
-        if (validationErrors.length) {
-          errors = errorHandler(validationErrors[0]);
-        } else {
-          errors = "";
-          success = true;
-        }
-      } catch (err) {
-        errors = err;
-      }
-    };
+    } catch (err) {
+      errors = err;
+    }
+  };
 
   export let handleClear;
-  handleClear = (event) => {
+  handleClear = () => {
     errors = "";
     for (const property in emailContent) {
-      emailContent[property] = '';
+      emailContent[property] = "";
     }
-  }
+  };
 
   function errorHandler(error) {
     if (fullNameErrorReg.test(error)) {
@@ -73,12 +73,7 @@
     }
     return cleanedMessage;
   }
-
-  onMount(() => {
-    console.log("form mounted");
-  });
 </script>
-
 
 <div
   uk-scrollspy="target: section; cls: uk-animation-slide-right-medium; delay: 250;"
@@ -91,7 +86,7 @@
       Feel free to reach out to me at any time. My contact information is below,
       and you can also contact me using the web form below.
     </p>
-    <table class="uk-table uk-table-justify uk-table-small">
+    <table class="uk-table uk-table-responsive uk-table-justify uk-table-small">
       <thead>
         <tr>
           <th>Phone Number</th>
@@ -166,16 +161,18 @@
         </div>
       </div>
     </form>
-    <button on:click={handleClick} class="uk-button uk-button-primary"
-      >Submit</button
-    >
-    <button on:click={handleClear} class="uk-button uk-button-danger"
-      >Cancel</button
-    >
+    <div class="button-wrapper">
+      <button on:click={handleClick} class="uk-button uk-button-primary"
+        >Submit</button
+      >
+      <button on:click={handleClear} class="uk-button uk-button-danger"
+        >Cancel</button
+      >
+    </div>
     {#if errors}
-    <p class:errors>{errors}</p>
+      <p class:errors>{errors}</p>
     {:else if success}
-    <p class:success>Much Success!</p>
+      <p class:success>Much Success!</p>
     {/if}
   </section>
 </div>
@@ -191,6 +188,27 @@
     z-index: 2;
     margin: 7% 2% 2% 2%;
   }
+
+  form {
+    max-width: 80ch !important;
+  }
+
+  label {
+    font-size: 1.1em !important;
+  }
+
+  button {
+    padding: 10px;
+  }
+
+  .button-wrapper {
+    padding: 1% 0%;
+  }
+
+  .uk-button-danger {
+    margin-left: 1%;
+  }
+  
 
   .non-lead {
     max-width: 80ch;
@@ -232,11 +250,17 @@
   }
 
   .errors {
-    background-color: rgba(220, 0, 0, 0.4)
+    background-color: rgba(220, 0, 0, 0.4);
   }
 
   .success {
-    background-color: rgba(0, 255, 0, 0.4)
+    background-color: rgba(0, 255, 0, 0.4);
   }
 
+  @media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  
+  }
 </style>
