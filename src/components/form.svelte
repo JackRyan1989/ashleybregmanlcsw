@@ -1,6 +1,5 @@
 <script>
   import { validateEmail } from "../validation/index";
-  import { onMount } from "svelte";
   let errors;
   let cleanedMessage;
   let success = false;
@@ -8,16 +7,17 @@
   const emailErrorMessage = "Please enter your email address.";
   const phoneErrorMessage = "Please enter your phone number.";
   const aboutErrorMessage = "Please tell me why you are contacting me.";
-  const fullNameErrorReg = new RegExp(/fullName/gim);
-  const emailErrorReg = new RegExp(/email/gim);
-  const phoneErrorReg = new RegExp(/phone/gim);
-  const aboutErrorReg = new RegExp(/about/gim);
+  const fullNameErrorReg = new RegExp(/fullName/im);
+  const emailErrorReg = new RegExp(/email/im);
+  const phoneErrorReg = new RegExp(/phone/im);
+  const aboutErrorReg = new RegExp(/about/im);
 
   let emailContent = {
     fullName: "",
     emailAddress: "",
     phone: "",
     about: "",
+    botfield: "botfield",
   };
 
   function validateAbout(input) {
@@ -33,23 +33,34 @@
     emailContent[event.target.id] = event.target.value;
   };
 
-  export let handleClick;
-  handleClick = async () => {
+  export let handleSubmit;
+  handleSubmit = async () => {
     let invalid = validateAbout(emailContent.about);
     if (invalid) {
-      errors = "Invalid Text Entered";
+      errors = "Please remove any special characters from your submission.";
       return errors;
     }
     try {
       let validationErrors = await validateEmail(emailContent);
       if (validationErrors.length) {
         errors = errorHandler(validationErrors[0]);
+        return errors;
       } else {
         errors = "";
-        success = true;
+        submitForm(emailContent);
       }
     } catch (err) {
       errors = err;
+    }
+
+    function submitForm(formData) {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      })
+        .then(() => success = true)
+        .catch((error) => alert(error));
     }
   };
 
@@ -106,9 +117,18 @@
     </table>
 
     <!--Contact Form-->
-    <form class="uk-form-horizontal uk-margin-medium">
+    <form
+      name="contact-form"
+      data-netlify="true"
+      method="POST"
+      netlify-honeypot="botfield"
+      class="uk-form-horizontal uk-margin-medium"
+    >
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
+        <div class="hidden">
+          <label>Don’t fill this out if you’re human: <input name="botfield" /></label>
+        </div>
         <div class="uk-form-controls">
           <input
             class="uk-input"
@@ -162,8 +182,10 @@
       </div>
     </form>
     <div class="button-wrapper">
-      <button on:click={handleClick} class="uk-button uk-button-primary"
-        >Submit</button
+      <button
+        type="submit"
+        on:click={handleSubmit}
+        class="uk-button uk-button-primary">Submit</button
       >
       <button on:click={handleClear} class="uk-button uk-button-danger"
         >Cancel</button
@@ -193,6 +215,10 @@
     max-width: 80ch !important;
   }
 
+  div.hidden {
+    display: none;
+  }
+
   label {
     font-size: 1.1em !important;
   }
@@ -208,7 +234,6 @@
   .uk-button-danger {
     margin-left: 1%;
   }
-  
 
   .non-lead {
     max-width: 80ch;
@@ -257,10 +282,6 @@
     background-color: rgba(0, 255, 0, 0.4);
   }
 
-  @media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-  
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
   }
 </style>

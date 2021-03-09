@@ -13,5 +13,5 @@
 </style>
 
 <section>
-    <a href="" class="link-item uk-align-left@s uk-align-right@m uk-align-right@l uk-align-right@xl"><span uk-icon='linkedin'></span></a>
+    <a href="www.linkedin.com" class="link-item uk-align-left@s uk-align-right@m uk-align-right@l uk-align-right@xl"><span uk-icon='linkedin'></span></a>
 </section>
