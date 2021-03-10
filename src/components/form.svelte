@@ -59,7 +59,14 @@
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
       })
-        .then(() => success = true)
+        .then(() => {
+          success = true;
+          let timer = setTimeout(() => {
+            success = false;
+            handleClear();
+          }, 1500);
+          return () => clearTimeout(timer);
+        })
         .catch((error) => alert(error));
     }
   };
@@ -124,19 +131,32 @@
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
     >
+      <!-- Error Display -->
+      {#if errors}
+        <p class="errorDisplay">{errors}</p>
+      {:else if success}
+        <p class:success>Request Submitted! Thank you.</p>
+      {/if}
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
         <div class="hidden">
-          <label>Don’t fill this out if you’re human: <input name="botfield" /></label>
+          <label
+            >Don’t fill this out if you’re human: <input
+              name="botfield"
+            /></label
+          >
         </div>
         <div class="uk-form-controls">
           <input
             class="uk-input"
+            class:errors
             id="fullName"
             type="text"
             placeholder="First and Last name"
             value={emailContent.fullName}
             on:input={handleChange}
+            aria-required="true"
+            required="true"
           />
         </div>
       </div>
@@ -145,11 +165,14 @@
         <div class="uk-form-controls">
           <input
             class="uk-input"
+            class:errors
             id="emailAddress"
             type="email"
             placeholder="Email"
             value={emailContent.emailAddress}
             on:input={handleChange}
+            aria-required="true"
+            required="true"
           />
         </div>
       </div>
@@ -158,11 +181,14 @@
         <div class="uk-form-controls">
           <input
             class="uk-input"
+            class:errors
             id="phone"
             type="tel"
             placeholder="Phone Number"
             value={emailContent.phone}
             on:input={handleChange}
+            aria-required="false"
+            required="false"
           />
         </div>
       </div>
@@ -172,11 +198,14 @@
           <textarea
             rows="5"
             class="uk-textarea"
+            class:errors
             id="about"
             type="text"
             placeholder="Tell me about yourself..."
             value={emailContent.about}
             on:input={handleChange}
+            aria-required="true"
+            required="true"
           />
         </div>
       </div>
@@ -191,11 +220,6 @@
         >Cancel</button
       >
     </div>
-    {#if errors}
-      <p class:errors>{errors}</p>
-    {:else if success}
-      <p class:success>Much Success!</p>
-    {/if}
   </section>
 </div>
 
@@ -213,6 +237,22 @@
 
   form {
     max-width: 80ch !important;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+  }
+
+  *:required {
+    box-shadow: none;
+  }
+
+  input:not(:focus):not(:placeholder-shown):invalid,
+  textarea:not(:focus):not(:placeholder-shown):invalid {
+    border: solid 1px lightpink !important;
+  }
+
+  input:not(:focus):not(:placeholder-shown):valid,
+  textarea:not(:focus):not(:placeholder-shown):valid {
+    border: solid 1px rgba(170, 185, 173, 0.75) !important;
   }
 
   div.hidden {
@@ -243,7 +283,8 @@
   .title {
     max-width: 60ch;
     font-size: 2em;
-    font-family: "Josefin Sans", sans-serif;
+    /* font-family: "Josefin Sans", sans-serif; */
+    font-family: 'Quicksand', sans-serif;
     font-weight: 300;
     letter-spacing: -2px;
     border-bottom: solid 4px rgba(170, 185, 173, 0.75);
@@ -275,11 +316,32 @@
   }
 
   .errors {
-    background-color: rgba(220, 0, 0, 0.4);
+    border: solid 1px lightpink !important;
+  }
+
+  .errorDisplay {
+    background-color: lightpink;
+    width: 50%;
+    padding: 2%;
+    text-align: center;
   }
 
   .success {
-    background-color: rgba(0, 255, 0, 0.4);
+    background-color: rgba(170, 185, 173, 0.75);
+    width: 50%;
+    padding: 2%;
+    text-align: center;
+    color: #fff;
+    animation: fadein 0.5s linear 0 0 forwards;
+  }
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {

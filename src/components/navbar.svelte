@@ -62,8 +62,7 @@
     padding: 15px;
     font-size: 2em;
     color: #aaa !important;
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 300;
+    font-family: 'Quicksand', sans-serif;
     letter-spacing: -2px;
   }
 
@@ -83,7 +82,7 @@
     z-index: 1;
     display: block;
     text-decoration: none;
-    font-weight: 800;
+        font-weight: 300;
     text-transform: uppercase;
     color: #aaa !important;
   }

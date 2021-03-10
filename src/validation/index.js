@@ -18,6 +18,7 @@ const validateEmail = async (data) => {
             .validate(data);
         return [];
     } catch (err) {
+        console.log(err)
         errors.push(err.message)
         return errors;
     }

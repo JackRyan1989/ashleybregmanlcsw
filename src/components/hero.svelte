@@ -43,7 +43,7 @@
     color: white !important;
     max-width: 60ch;
     font-size: 4em;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 300;
     letter-spacing: -2px;
   }
