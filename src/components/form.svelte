@@ -2,7 +2,6 @@
   import { validateEmail } from "../validation/index";
   let errors;
   let cleanedMessage;
-  let success = false;
   const nameErrorMessage = "Please enter your full name.";
   const emailErrorMessage = "Please enter your email address.";
   const phoneErrorMessage = "Please enter your phone number.";
@@ -20,7 +19,7 @@
     botfield: "botfield",
   };
 
-  function validateAbout(input) {
+  const validateAbout = (input) => {
     const reg = new RegExp(
       /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+(?<!\/\s\*)>/
     );
@@ -38,36 +37,34 @@
     let invalid = validateAbout(emailContent.about);
     if (invalid) {
       errors = "Please remove any special characters from your submission.";
-      return errors;
-    }
-    try {
-      let validationErrors = await validateEmail(emailContent);
-      if (validationErrors.length) {
-        errors = errorHandler(validationErrors[0]);
-        return errors;
-      } else {
-        errors = "";
-        submitForm(emailContent);
+      displayModal(errors);
+    } else {
+      try {
+        let validationErrors = await validateEmail(emailContent);
+        if (validationErrors.length) {
+          errors = errorHandler(validationErrors);
+          displayModal(errors);
+        } else {
+          errors = "";
+          submitForm(emailContent);
+        }
+      } catch (err) {
+        errors = err;
+        displayModal(errors);
       }
-    } catch (err) {
-      errors = err;
     }
 
-    function submitForm(formData) {
+  function submitForm(formData) {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
       })
         .then(() => {
-          success = true;
-          let timer = setTimeout(() => {
-            success = false;
-            handleClear();
-          }, 1500);
-          return () => clearTimeout(timer);
+          displayModal("Request submitted successfully! Thank you.");
+          handleClear();
         })
-        .catch((error) => alert(error));
+        .catch((error) => displayModal(error));
     }
   };
 
@@ -79,7 +76,8 @@
     }
   };
 
-  function errorHandler(error) {
+  
+  const errorHandler = (error) => {
     if (fullNameErrorReg.test(error)) {
       cleanedMessage = nameErrorMessage;
     } else if (emailErrorReg.test(error)) {
@@ -90,6 +88,10 @@
       cleanedMessage = aboutErrorMessage;
     }
     return cleanedMessage;
+  }
+
+  const displayModal = (message) => {
+    UIkit.modal.alert(message);
   }
 </script>
 
@@ -131,12 +133,6 @@
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
     >
-      <!-- Error Display -->
-      {#if errors}
-        <p class="errorDisplay">{errors}</p>
-      {:else if success}
-        <p class:success>Request Submitted! Thank you.</p>
-      {/if}
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
         <div class="hidden">
@@ -181,7 +177,6 @@
         <div class="uk-form-controls">
           <input
             class="uk-input"
-            class:errors
             id="phone"
             type="tel"
             placeholder="Phone Number"
@@ -283,7 +278,6 @@
   .title {
     max-width: 60ch;
     font-size: 2em;
-    /* font-family: "Josefin Sans", sans-serif; */
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
     letter-spacing: -2px;
@@ -317,31 +311,6 @@
 
   .errors {
     border: solid 1px lightpink !important;
-  }
-
-  .errorDisplay {
-    background-color: lightpink;
-    width: 50%;
-    padding: 2%;
-    text-align: center;
-  }
-
-  .success {
-    background-color: rgba(170, 185, 173, 0.75);
-    width: 50%;
-    padding: 2%;
-    text-align: center;
-    color: #fff;
-    animation: fadein 0.5s linear 0 0 forwards;
-  }
-
-  @keyframes fadein {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
