@@ -16,23 +16,18 @@
   }
 
   @font-face {
-    font-family: "atkinson_hyperlegible";
-    src: url("/assets/fonts/Atkinson-Hyperlegible/Web Fonts/WOFF/Atkinson-Hyperlegible-Regular-102.woff.woff")
-      format("woff");
-    src: url("/assets/fonts/Atkinson-Hyperlegible/Web Fonts/EOT/Atkinson-Hyperlegible-Regular-102.eot")
-        format("embedded-opentype"),
-      url("/assets/fonts/Atkinson-Hyperlegible/Web Fonts/WOFF2/Atkinson-Hyperlegible-Regular-102.woff2")
-        format("woff2"),
-      url("/assets/fonts/Atkinson-Hyperlegible/Web Fonts/TTF/Atkinson-Hyperlegible-Regular-102.ttf")
-        format("truetype"),
-      url("/assets/fonts/Atkinson-Hyperlegible/Web Fonts/SVG/Atkinson-Hyperlegible-Regular-102.svg")
-        format("svg");
-    font-weight: 102;
+    font-family: "brandon-grotesque";
+    src: url("/assets/fonts/Brandon Grotesque/Web/Brandon-Grotesque-Web-Light.eot")
+      format("embedded-opentype"), 
+      url("/assets/fonts/Brandon Grotesque/Web/Brandon-Grotesque-Web-Light.woff")
+        format("woff"),
+      url("/assets/fonts/Brandon Grotesque/Web/Brandon-Grotesque-Web-Light.woff2")
+        format("woff2");
     font-style: normal;
   }
 
   .page-wrapper {
-    font-family: atkinson_hyperlegible, Roboto, sans-serif;
+    font-family: brandon-grotesque, Roboto, sans-serif;
     background: white;
     height: 100vh;
     display: grid;

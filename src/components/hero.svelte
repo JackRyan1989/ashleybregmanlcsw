@@ -25,7 +25,8 @@
     top: 50%;
     margin: 0;
     left: 50%;
-    transform: translate(-50%, -50%) perspective(3000px) rotateX(3deg) rotateY(1deg);
+    transform: translate(-50%, -50%) perspective(3000px) rotateX(3deg)
+      rotateY(1deg);
     padding: 30px 15px;
     text-align: center;
     background: rgba(170, 185, 173, 0.75);
@@ -43,20 +44,14 @@
     color: white !important;
     max-width: 60ch;
     font-size: 4em;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 300;
     letter-spacing: -2px;
+    font-family: "brandon-grotesque";
   }
 
-   /* Phone Screens, Landscape and Portrait modes */
-   @media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
+  /* Phone Screens, Landscape and Portrait modes */
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
     h1 {
       font-size: 3em;
     }
-}
-
-
+  }
 </style>

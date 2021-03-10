@@ -22,7 +22,6 @@
     padding: 0;
     border: 0;
     outline: 0;
-    font-size: 100%;
     vertical-align: baseline;
     background: transparent;
   }
@@ -62,8 +61,8 @@
     padding: 15px;
     font-size: 2em;
     color: #aaa !important;
-    font-family: 'Quicksand', sans-serif;
     letter-spacing: -2px;
+    font-family: "brandon-grotesque";
   }
 
   .link-wrapper {
@@ -82,7 +81,6 @@
     z-index: 1;
     display: block;
     text-decoration: none;
-        font-weight: 300;
     text-transform: uppercase;
     color: #aaa !important;
   }

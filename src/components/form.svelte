@@ -232,8 +232,6 @@
 
   form {
     max-width: 80ch !important;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 300;
   }
 
   *:required {
@@ -278,10 +276,9 @@
   .title {
     max-width: 60ch;
     font-size: 2em;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 300;
     letter-spacing: -2px;
     border-bottom: solid 4px rgba(170, 185, 173, 0.75);
+    font-family: "brandon-grotesque";
   }
 
   td {

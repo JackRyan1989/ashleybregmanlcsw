@@ -50,24 +50,19 @@
   .title {
     max-width: 60ch;
     font-size: 2em;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 300;
     letter-spacing: -2px;
     border-bottom: solid 4px rgba(170, 185, 173, 0.75);
+    font-family: "brandon-grotesque";
   }
 
   .uk-text-lead {
     max-width: 65ch;
     margin-top: 1.5%;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 300;
   }
 
   .non-lead {
     margin: 1em 0%;
     max-width: 80ch;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 300;
   }
 
 </style>
