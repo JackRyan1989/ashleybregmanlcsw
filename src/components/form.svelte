@@ -33,7 +33,8 @@
   };
 
   export let handleSubmit;
-  handleSubmit = async () => {
+  handleSubmit = async (e) => {
+    e.preventDefault();
     let invalid = validateAbout(emailContent.about);
     if (invalid) {
       errors = "Please remove any special characters from the text about yourself.";
@@ -142,7 +143,7 @@
       data-netlify="true"
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
-      on:submit|preventDefault={handleSubmit}
+      on:submit={handleSubmit}
       method="POST"
       action="/"
     >
