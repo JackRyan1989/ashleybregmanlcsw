@@ -31,6 +31,7 @@
     padding: 0;
     border: 0;
     outline: 0;
+    background-color:#e2e7e3;
     vertical-align: baseline;
   }
   

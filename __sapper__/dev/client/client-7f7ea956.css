@@ -1,9 +1,0 @@
-.svelte-dpksy6.svelte-dpksy6{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline}@font-face{font-family:"brandon-grotesque";src:url("/assets/fonts/Brandon Grotesque/Web/Brandon-Grotesque-Light.eot")
-      format("embedded-opentype");src:url("/assets/fonts//assets/fonts/Brandon Grotesque/Web/Brandon-Grotesque-Light.woff")
-        format("woff"),
-        url("/assets/fonts//assets/fonts/Brandon Grotesque/Web/Brandon-Grotesque-Light.woff2")
-        format("woff2");font-style:normal}.page-wrapper.svelte-dpksy6.svelte-dpksy6{font-family:brandon-grotesque, Roboto, sans-serif;background:white;height:100vh;display:grid;grid-template-columns:minmax(50px, 1fr);grid-template-rows:min-content 1fr minmax(25px, max-content);gap:1px}.page-wrapper.svelte-dpksy6 *{@media (prefers-reduced-motion: no-preference) {
-      html {
-        scroll-behavior: smooth;
-      }
-    }}.page-wrapper.svelte-dpksy6 [id]{scroll-margin-top:4ex}@media(max-width: 600px){.page-wrapper.svelte-dpksy6.svelte-dpksy6{grid-template-columns:100%;grid-template-rows:auto}.page-wrapper.svelte-dpksy6>.svelte-dpksy6{grid-column:1 / -1 !important;grid-row:auto !important}}

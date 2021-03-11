@@ -33,8 +33,7 @@
   };
 
   export let handleSubmit;
-  handleSubmit = async (e) => {
-    e.preventDefault();
+  handleSubmit = async () => {
     let invalid = validateAbout(emailContent.about);
     if (invalid) {
       errors = "Please remove any special characters from your submission.";
@@ -56,12 +55,15 @@
     }
 
   function submitForm(formData) {
+    let x = new URLSearchParams(formData).toString();
+    console.log(x)
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
       })
-        .then(() => {
+        .then((res) => {
+          console.log(res);
           displayModal("Request submitted successfully! Thank you.");
           handleClear();
         })
@@ -129,6 +131,7 @@
     <!--Contact Form-->
     <form
       name="contact-form"
+      id="contact"
       data-netlify="true"
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
@@ -207,12 +210,13 @@
     </form>
     <div class="button-wrapper">
       <button
-        type="submit"
-        on:click={handleSubmit}
-        class="uk-button uk-button-primary">Submit</button
+      form="contact"
+      type="button"
+      on:click={handleSubmit}
+      class="uk-button uk-button-primary">Submit</button
       >
       <button on:click={handleClear} class="uk-button uk-button-danger"
-        >Cancel</button
+      >Cancel</button
       >
     </div>
   </section>
@@ -223,6 +227,7 @@
     margin: 0%;
     padding: 0;
     vertical-align: baseline;
+    background-color: #d7e5ea;
   }
 
   section {
