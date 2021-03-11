@@ -56,7 +56,7 @@
     }
 
     function submitForm(formData) {
-      fetch("https://fervent-thompson-1b8733.netlify.app", {
+      fetch("https://fervent-thompson-1b8733.netlify.app/thankyou", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode(formData),
