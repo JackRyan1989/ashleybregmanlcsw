@@ -135,16 +135,6 @@
       </tbody>
     </table>
 
-    <!-- Hidden HTML form -->
-    <div  class="hidden">
-    <form data-netlify="true">
-      <input type="hidden" name="fullName"/>
-      <input type="hidden" name="emailAddress"/>
-      <input type="hidden" name="phone"/>
-      <input type="hidden" name="about"/>
-    </form>
-  </div>
-
     <!--Contact Form-->
     <form
       name="contact-form"
