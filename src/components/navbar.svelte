@@ -82,6 +82,7 @@
     display: block;
     text-decoration: none;
     text-transform: uppercase;
+    color: black !important;
   }
 
   .link:hover {
