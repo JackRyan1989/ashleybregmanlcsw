@@ -33,7 +33,8 @@
   };
 
   export let handleSubmit;
-  handleSubmit = async () => {
+  handleSubmit = async (e) => {
+    e.preventDefault();
     let invalid = validateAbout(emailContent.about);
     if (invalid) {
       errors = "Please remove any special characters from your submission.";
@@ -132,6 +133,7 @@
       method="POST"
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
+      on:submit={handleSubmit}
     >
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
@@ -208,7 +210,6 @@
     <div class="button-wrapper">
       <button
         type="submit"
-        on:click={handleSubmit}
         class="uk-button uk-button-primary">Submit</button
       >
       <button on:click={handleClear} class="uk-button uk-button-danger"
