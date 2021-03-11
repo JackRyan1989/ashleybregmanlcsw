@@ -33,7 +33,8 @@
   };
 
   export let handleSubmit;
-  handleSubmit = async () => {
+  handleSubmit = async (e) => {
+    e.preventDefault();
     let invalid = validateAbout(emailContent.about);
     if (invalid) {
       errors = "Please remove any special characters from the text about yourself.";
@@ -54,8 +55,7 @@
       }
     }
 
-    function submitForm(e,formData) {
-      e.preventDefault();
+    function submitForm(formData) {
       fetch("https://fervent-thompson-1b8733.netlify.app", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
