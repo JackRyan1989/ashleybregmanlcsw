@@ -25,7 +25,7 @@
     );
     const found = reg.test(input);
     return found;
-  }
+  };
 
   export let handleChange;
   handleChange = (event) => {
@@ -54,9 +54,7 @@
       }
     }
 
-  function submitForm(formData) {
-    let x = new URLSearchParams(formData).toString();
-    console.log(x)
+    function submitForm(formData) {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -79,7 +77,6 @@
     }
   };
 
-  
   const errorHandler = (error) => {
     if (fullNameErrorReg.test(error)) {
       cleanedMessage = nameErrorMessage;
@@ -91,11 +88,11 @@
       cleanedMessage = aboutErrorMessage;
     }
     return cleanedMessage;
-  }
+  };
 
   const displayModal = (message) => {
     UIkit.modal.alert(message);
-  }
+  };
 </script>
 
 <div
@@ -150,6 +147,7 @@
             class="uk-input"
             class:errors
             id="fullName"
+            name="fullName"
             type="text"
             placeholder="First and Last name"
             value={emailContent.fullName}
@@ -166,6 +164,7 @@
             class="uk-input"
             class:errors
             id="emailAddress"
+            name="emailAddress"
             type="email"
             placeholder="Email"
             value={emailContent.emailAddress}
@@ -181,6 +180,7 @@
           <input
             class="uk-input"
             id="phone"
+            name="phone"
             type="tel"
             placeholder="Phone Number"
             value={emailContent.phone}
@@ -198,6 +198,7 @@
             class="uk-textarea"
             class:errors
             id="about"
+            name="about"
             type="text"
             placeholder="Tell me about yourself..."
             value={emailContent.about}
@@ -210,13 +211,13 @@
     </form>
     <div class="button-wrapper">
       <button
-      form="contact"
-      type="button"
-      on:click={handleSubmit}
-      class="uk-button uk-button-primary">Submit</button
+        form="contact"
+        type="button"
+        on:click={handleSubmit}
+        class="uk-button uk-button-primary">Submit</button
       >
       <button on:click={handleClear} class="uk-button uk-button-danger"
-      >Cancel</button
+        >Cancel</button
       >
     </div>
   </section>
