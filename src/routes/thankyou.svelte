@@ -17,4 +17,8 @@
 </article>
 
 <style>
+  article {
+    margin: 2%;
+    padding: 2%;
+  }
 </style>
