@@ -152,7 +152,6 @@
             /></label
           >
         </div>
-        <input type="hidden" name="contact-form" value="contact-form" />
         <div class="uk-form-controls">
           <input
             class="uk-input"
