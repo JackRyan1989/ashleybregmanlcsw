@@ -13,7 +13,7 @@
 
 <style>
   .hero-image-container {
-    height: 70vh;
+    height: 77vh;
     background-image: url("https://picsum.photos/1000/1000/");
     background-position: center;
     background-repeat: no-repeat;

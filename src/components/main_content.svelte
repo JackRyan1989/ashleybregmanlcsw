@@ -1,8 +1,8 @@
 <script>
 </script>
 
+<div uk-scrollspy="target: .content; cls: uk-animation-slide-left-medium; delay: 250;">
 <section class="body-content">
-  <div uk-scrollspy="target: .content; cls: uk-animation-slide-left-medium; delay: 250;">
     <article class="content uk-article">
       <h1 class="title uk-article-title" id="about">
         Main Content Section
@@ -22,8 +22,8 @@
         efficitur erat nec, faucibus velit. Nunc varius faucibus nisi a laoreet.
       </p>
     </article>
-  </div>
 </section>
+</div>
 
 <style>
   * {
@@ -31,21 +31,17 @@
     padding: 0;
     border: 0;
     outline: 0;
-    background-color:#e2e7e3;
+    background-color:#d7e5ea;
     vertical-align: baseline;
   }
   
   .body-content {
-    z-index: 2;
     margin: 0% 2%;
+    padding: 2%;
   }
 
   ::-webkit-scrollbar {
     display: none;
-  }
-
-  .content {
-    margin-top: 5%;
   }
 
   .title {

@@ -36,7 +36,7 @@
   handleSubmit = async () => {
     let invalid = validateAbout(emailContent.about);
     if (invalid) {
-      errors = "Please remove any special characters from your submission.";
+      errors = "Please remove any special characters from the text about yourself.";
       displayModal(errors);
     } else {
       try {
@@ -61,10 +61,10 @@
         body: new URLSearchParams(formData).toString(),
       })
         .then((res) => {
-          console.log(res);
-          if (res.status = 404) {
-            displayModal(res.status.statusText)
-          } else {
+          console.log(res.status);
+          if (res.status === 404) {
+            displayModal("Location not found")
+          } else if (res.status === 200) {
             displayModal("Request submitted successfully! Thank you.");
             handleClear();
           }
@@ -118,7 +118,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="row-hover">
+        <tr>
           <td>(215)-123-1234</td>
           <td
             ><a href="mailto:ashleybregman@gmail.com" class="link-item"
@@ -136,7 +136,6 @@
       data-netlify="true"
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
-      action="/"
     >
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
@@ -233,12 +232,13 @@
     margin: 0%;
     padding: 0;
     vertical-align: baseline;
-    background-color: #d7e5ea;
+    background-color: #e2e7e3;
   }
 
   section {
     z-index: 2;
-    margin: 7% 2% 2% 2%;
+    margin: 0% 2% 2% 2%;
+    padding: 2%;
   }
 
   form {
@@ -249,14 +249,20 @@
     box-shadow: none;
   }
 
+  input,
+  textarea {
+    background-color: #fff !important;
+    border: solid 2px lightgray !important;
+  }
+
   input:not(:focus):not(:placeholder-shown):invalid,
   textarea:not(:focus):not(:placeholder-shown):invalid {
-    border: solid 1px lightpink !important;
+    border: solid 2px lightpink !important;
   }
 
   input:not(:focus):not(:placeholder-shown):valid,
   textarea:not(:focus):not(:placeholder-shown):valid {
-    border: solid 1px rgba(170, 185, 173, 0.75) !important;
+    border: solid 2px rgba(170, 185, 173, 0.75) !important;
   }
 
   div.hidden {
@@ -292,24 +298,13 @@
     font-family: "brandon-grotesque";
   }
 
+  th {
+    font-size: 0.95em;
+    color: black;
+  }
+
   td {
     padding: 1.5% 1.5% !important;
-  }
-
-  .row-hover {
-    background-color: #fff;
-  }
-
-  .row-hover:hover {
-    color: #fff;
-    background-color: #aab9ad;
-    transition-property: background-color;
-    transition-duration: 0.25s;
-  }
-
-  .row-hover:hover .email-link,
-  .row-hover:hover .link-item {
-    color: #fff;
   }
 
   .email-link,
@@ -319,6 +314,14 @@
 
   .errors {
     border: solid 1px lightpink !important;
+  }
+
+  .uk-button-primary {
+    background-color: #0F7AE5 !important;
+  }
+
+  .uk-button-danger {
+    background-color: #EE395B !important;
   }
 
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
