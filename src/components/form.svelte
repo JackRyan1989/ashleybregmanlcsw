@@ -144,8 +144,6 @@
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
       on:submit={handleSubmit}
-      method="POST"
-      action="/"
     >
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
