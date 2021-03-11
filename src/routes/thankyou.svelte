@@ -1,6 +1,10 @@
+<svelte:head>
+	<title>Thank you!</title>
+</svelte:head>
+
 <!-- Markup -->
 <article class="uk-article">
-  <h1 class="uk-article-title"><a class="uk-link-reset" href="">Thank You!</a></h1>
+  <h1 class="uk-article-title">Thank You!</h1>
   <p class="uk-text-lead">
     Your response has been received and I will be in contact at my earliest convenience.
   </p>
