@@ -135,7 +135,6 @@
         </tr>
       </tbody>
     </table>
-    <a href="/thankyou">CLICK ME</a>
     <!--Contact Form-->
     <form
       name="contact-form"
