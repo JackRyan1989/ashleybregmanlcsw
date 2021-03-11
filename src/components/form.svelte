@@ -56,7 +56,7 @@
     }
 
     function submitForm(formData) {
-      fetch("https://fervent-thompson-1b8733.netlify.app/", {
+      fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode(formData),
@@ -135,6 +135,8 @@
         </tr>
       </tbody>
     </table>
+
+  
     <!--Contact Form-->
     <form
       name="contact-form"
@@ -143,7 +145,7 @@
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
       method="POST"
-      action="/thankyou"
+      action="/thankyou/"
     >
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
