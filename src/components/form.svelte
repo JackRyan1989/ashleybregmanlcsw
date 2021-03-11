@@ -62,8 +62,12 @@
       })
         .then((res) => {
           console.log(res);
-          displayModal("Request submitted successfully! Thank you.");
-          handleClear();
+          if (res.status = 404) {
+            displayModal(res.status.statusText)
+          } else {
+            displayModal("Request submitted successfully! Thank you.");
+            handleClear();
+          }
         })
         .catch((error) => displayModal(error));
     }
@@ -132,6 +136,7 @@
       data-netlify="true"
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
+      action="/"
     >
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
