@@ -228,9 +228,9 @@
           type="submit"
           class="uk-button uk-button-primary">Submit</button
         >
-        <button on:click={handleClear} class="uk-button uk-button-danger"
+        <!-- <button type="reset" on:click={handleClear} class="uk-button uk-button-danger"
           >Cancel</button
-        >
+        > -->
       </div>
     </form>
   </section>
