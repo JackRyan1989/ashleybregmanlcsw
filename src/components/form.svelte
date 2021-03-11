@@ -138,10 +138,11 @@
     <!--Contact Form-->
     <form
       name="contact-form"
-      id="contact"
+      id="contact-form"
       data-netlify="true"
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
+      on:submit|preventDefault={handleSubmit}
     >
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
@@ -218,18 +219,17 @@
           />
         </div>
       </div>
+      <div class="button-wrapper">
+        <button
+          form="contact-form"
+          type="submit"
+          class="uk-button uk-button-primary">Submit</button
+        >
+        <button on:click={handleClear} class="uk-button uk-button-danger"
+          >Cancel</button
+        >
+      </div>
     </form>
-    <div class="button-wrapper">
-      <button
-        form="contact"
-        type="button"
-        on:click={handleSubmit}
-        class="uk-button uk-button-primary">Submit</button
-      >
-      <button on:click={handleClear} class="uk-button uk-button-danger"
-        >Cancel</button
-      >
-    </div>
   </section>
 </div>
 
