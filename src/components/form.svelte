@@ -33,8 +33,7 @@
   };
 
   export let handleSubmit;
-  handleSubmit = async (e) => {
-    e.preventDefault();
+  handleSubmit = async () => {
     let invalid = validateAbout(emailContent.about);
     if (invalid) {
       errors = "Please remove any special characters from the text about yourself.";
@@ -55,7 +54,8 @@
       }
     }
 
-    function submitForm(formData) {
+    function submitForm(e,formData) {
+      e.preventDefault();
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
