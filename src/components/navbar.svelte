@@ -28,6 +28,7 @@
 
   .nav-wrapper {
     display: grid;
+    color: black !important;
     grid-template-columns: 2fr 2fr;
     place-items: center;
     text-align: center;
@@ -60,7 +61,6 @@
   .name-card {
     padding: 15px;
     font-size: 2em;
-    color: #aaa !important;
     letter-spacing: -2px;
     font-family: "brandon-grotesque";
   }
@@ -82,7 +82,6 @@
     display: block;
     text-decoration: none;
     text-transform: uppercase;
-    color: #aaa !important;
   }
 
   .link:hover {

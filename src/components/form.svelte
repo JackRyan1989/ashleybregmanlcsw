@@ -238,7 +238,7 @@
     margin: 0%;
     padding: 0;
     vertical-align: baseline;
-    background-color: #e2e7e3;
+    background-color: #d7e5ea;
   }
 
   section {
