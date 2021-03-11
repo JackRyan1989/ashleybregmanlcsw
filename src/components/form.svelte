@@ -130,10 +130,8 @@
     <form
       name="contact-form"
       data-netlify="true"
-      method="POST"
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
-      on:submit={handleSubmit}
     >
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
@@ -210,6 +208,7 @@
     <div class="button-wrapper">
       <button
         type="submit"
+        on:click={handleSubmit}
         class="uk-button uk-button-primary">Submit</button
       >
       <button on:click={handleClear} class="uk-button uk-button-danger"
