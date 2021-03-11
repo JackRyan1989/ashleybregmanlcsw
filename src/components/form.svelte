@@ -58,7 +58,7 @@
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
+        body: encode(formData),
       })
         .then((res) => {
           console.log(res.status);
@@ -72,6 +72,12 @@
         .catch((error) => displayModal(error));
     }
   };
+
+  function encode(data) {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&")
+  }
 
   export let handleClear;
   handleClear = () => {
@@ -129,6 +135,16 @@
       </tbody>
     </table>
 
+    <!-- Hidden HTML form -->
+    <div  class="hidden">
+    <form data-netlify="true">
+      <input type="hidden" name="fullName"/>
+      <input type="hidden" name="emailAddress"/>
+      <input type="hidden" name="phone"/>
+      <input type="hidden" name="about"/>
+    </form>
+  </div>
+
     <!--Contact Form-->
     <form
       name="contact-form"
@@ -146,6 +162,7 @@
             /></label
           >
         </div>
+        <input type="hidden" name="contact-form" value="contact-form" />
         <div class="uk-form-controls">
           <input
             class="uk-input"
