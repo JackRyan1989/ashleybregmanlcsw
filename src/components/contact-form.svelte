@@ -59,7 +59,7 @@
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode(formData),
+        body: encode({ "form-name": "contact-form", ...formData }),
       })
         .then((res) => {
           console.log(res.status);
@@ -110,7 +110,7 @@
     <form
       name="contact-form"
       id="contact-form"
-      netlify
+      data-netlify="true"
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
       method="POST"
@@ -125,6 +125,7 @@
             /></label
           >
         </div>
+        <input type='hidden' name='contact-form' value='Contact Form' />
         <div class="uk-form-controls">
           <input
             class="uk-input"
