@@ -125,7 +125,7 @@
             /></label
           >
         </div>
-        <input type='hidden' name='contact-form' value='Contact Form' />
+        <input type='hidden' name='form-name' value='Contact Form' />
         <div class="uk-form-controls">
           <input
             class="uk-input"
