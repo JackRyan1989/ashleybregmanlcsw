@@ -110,7 +110,7 @@
     <form
       name="contact-form"
       id="contact-form"
-      data-netlify="true"
+      netlify
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
       method="POST"
