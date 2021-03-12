@@ -1,4 +1,6 @@
 <script>
+  import Fullsizenav from './fullsize_nav.svelte';
+  import Hamburger from './hamburger_nav.svelte';
 </script>
 
 <nav class="nav-wrapper">
@@ -6,14 +8,12 @@
     <div class="headshot" />
     <h1 class="name-card">Ashley Bregman <span>LCSW</span></h1>
   </div>
-  <ul class="link-wrapper">
-    <li class="link-item">
-      <a class="link" id="first" href="#about" uk-scroll>My Practice</a>
-    </li>
-    <li class="link-item">
-      <a class="link" id="second" href="#contact" uk-scroll>Contact Me</a>
-    </li>
-  </ul>
+  <div class="fullsize">
+    <Fullsizenav />
+  </div>
+  <div class="mobile">
+    <Hamburger />
+  </div>
 </nav>
 
 <style>
@@ -58,64 +58,14 @@
     border-radius: 100%;
   }
 
+  .mobile {
+    display: none;
+  }
+
   .name-card {
     padding: 15px;
     font-size: 2em;
-    letter-spacing: -2px;
     font-family: "brandon-grotesque";
-  }
-
-  .link-wrapper {
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-  }
-  .link-item {
-    padding: 0px 2ch;
-  }
-
-  .link {
-    padding: 15px;
-    position: relative;
-    z-index: 1;
-    display: block;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: black !important;
-  }
-
-  .link:hover {
-    color: #fff !important;
-  }
-
-  .link:after {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    width: 100%;
-    height: 1px;
-    content: ".";
-    color: transparent;
-    visibility: none;
-    opacity: 0;
-    z-index: -1;
-    transition: all 0.5s;
-    background: #aab9ad;
-  }
-
-  .link::before {
-    transition: all 0.5s;
-  }
-
-  .link:hover:after {
-    opacity: 1;
-    visibility: visible;
-    height: 100%;
   }
 
   /* Phone Screens, Landscape and Portrait modes */
@@ -124,32 +74,18 @@
       display: none;
     }
 
-    .link {
-      padding: 10px;
-      font-size: 0.75em;
+    .fullsize {
+      display: none;
     }
 
-    .link:focus {
-      color: #fff !important;
+    .mobile {
+      display: block;
     }
 
-    .link:focus:after {
-      opacity: 1;
-      visibility: visible;
-      height: 100%;
-    }
+    .nav-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
 
-    /* Tablet */
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-      .link:focus {
-        color: #fff !important;
-      }
-
-      .link:focus:after {
-        opacity: 1;
-        visibility: visible;
-        height: 100%;
-      }
-    }
   }
 </style>

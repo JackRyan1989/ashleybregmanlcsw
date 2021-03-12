@@ -1,8 +1,9 @@
 <script>
   import Navbar from "../components/navbar.svelte";
-  import Form from "../components/form.svelte";
+  import Contact from "../components/contact-me.svelte";
   import Hero from "../components/hero.svelte";
-  import MainContent from "../components/main_content.svelte";
+  import About from "../components/about_me.svelte";
+  import Specializations from "../components/specializations.svelte"
   import Footer from "../components/footer.svelte";
 </script>
 
@@ -14,8 +15,9 @@
 <main>
   <Hero />
   <section>
-    <MainContent />
-    <Form />
+    <About />
+    <Specializations />
+    <Contact />
   </section>
 </main>
 <Footer />

@@ -14,7 +14,7 @@
 <style>
   .hero-image-container {
     height: 77vh;
-    background-image: url("https://picsum.photos/1000/1000/");
+    background-image: url("/assets/images/dry_leaves.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -52,6 +52,10 @@
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
     h1 {
       font-size: 3em;
+    }
+
+    .hero-image-container {
+    height: 85vh;
     }
   }
 </style>

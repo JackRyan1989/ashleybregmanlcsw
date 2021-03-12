@@ -44,10 +44,6 @@
     }
   }
 
-  .page-wrapper :global([id]) {
-    scroll-margin-top: 4ex;
-  }
-
   @media (max-width: 600px) {
     .page-wrapper {
       grid-template-columns: 100%;
