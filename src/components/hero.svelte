@@ -3,7 +3,16 @@
 
 <div
   uk-parallax="bgy: 200"
-  class="uk-cover-container hero-image-container"
+  class="parallax uk-cover-container hero-image-container"
+  uk-scrollspy="target: .main-heading-box; cls: uk-animation-fade; delay: 250;"
+>
+  <div class="main-heading-box">
+    <h1>Comprehensive Care and Counseling</h1>
+  </div>
+</div>
+
+<div
+  class="no-parallax uk-cover-container hero-image-container"
   uk-scrollspy="target: .main-heading-box; cls: uk-animation-fade; delay: 250;"
 >
   <div class="main-heading-box">
@@ -48,6 +57,10 @@
     font-family: "brandon-grotesque";
   }
 
+  .no-parallax {
+    display: none;
+  }
+
   /* Phone Screens, Landscape and Portrait modes */
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
     h1 {
@@ -56,6 +69,14 @@
 
     .hero-image-container {
     height: 85vh;
+    }
+
+    .no-parallax {
+      display: block;
+    }
+
+    .parallax {
+      display: none;
     }
   }
 </style>

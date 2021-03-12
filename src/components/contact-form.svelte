@@ -237,11 +237,7 @@
   .button-wrapper {
     padding: 1% 0%;
   }
-
-  .errors {
-    border: solid 1px lightpink !important;
-  }
-
+  
   .uk-button-primary {
     background-color: #0F7AE5 !important;
   }
