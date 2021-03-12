@@ -1,109 +1,109 @@
 <script>
-  import { validateEmail } from "../validation/index";
-  let errors;
-  let cleanedMessage;
-  const nameErrorMessage = "Please enter your full name.";
-  const emailErrorMessage = "Please enter your email address.";
-  const phoneErrorMessage = "Please enter your phone number.";
-  const aboutErrorMessage = "Please tell me why you are contacting me.";
-  const fullNameErrorReg = new RegExp(/fullName/im);
-  const emailErrorReg = new RegExp(/email/im);
-  const phoneErrorReg = new RegExp(/phone/im);
-  const aboutErrorReg = new RegExp(/about/im);
+  // import { validateEmail } from "../validation/index";
+  // let errors;
+  // let cleanedMessage;
+  // const nameErrorMessage = "Please enter your full name.";
+  // const emailErrorMessage = "Please enter your email address.";
+  // const phoneErrorMessage = "Please enter your phone number.";
+  // const aboutErrorMessage = "Please tell me why you are contacting me.";
+  // const fullNameErrorReg = new RegExp(/fullName/im);
+  // const emailErrorReg = new RegExp(/email/im);
+  // const phoneErrorReg = new RegExp(/phone/im);
+  // const aboutErrorReg = new RegExp(/about/im);
 
-  let emailContent = {
-    fullName: "",
-    emailAddress: "",
-    phone: "",
-    about: "",
-    botfield: "botfield",
-  };
+  // let emailContent = {
+  //   fullName: "",
+  //   emailAddress: "",
+  //   phone: "",
+  //   about: "",
+  //   botfield: "botfield",
+  // };
 
-  const validateAbout = (input) => {
-    const reg = new RegExp(
-      /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+(?<!\/\s\*)>/
-    );
-    const found = reg.test(input);
-    return found;
-  };
+  // const validateAbout = (input) => {
+  //   const reg = new RegExp(
+  //     /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+(?<!\/\s\*)>/
+  //   );
+  //   const found = reg.test(input);
+  //   return found;
+  // };
 
-  export let handleChange;
-  handleChange = (event) => {
-    emailContent[event.target.id] = event.target.value;
-  };
+  // export let handleChange;
+  // handleChange = (event) => {
+  //   emailContent[event.target.id] = event.target.value;
+  // };
 
-  export let handleSubmit;
-  handleSubmit = async (e) => {
-    e.preventDefault();
-    let invalid = validateAbout(emailContent.about);
-    if (invalid) {
-      errors = "Please remove any special characters from the text about yourself.";
-      displayModal(errors);
-    } else {
-      try {
-        let validationErrors = await validateEmail(emailContent);
-        if (validationErrors.length) {
-          errors = errorHandler(validationErrors);
-          displayModal(errors);
-        } else {
-          errors = "";
-          submitForm(emailContent);
-        }
-      } catch (err) {
-        errors = err;
-        displayModal(errors);
-      }
-    }
+  // // // export let handleSubmit;
+  // // // handleSubmit = async (e) => {
+  // // //   e.preventDefault();
+  // // //   let invalid = validateAbout(emailContent.about);
+  // // //   if (invalid) {
+  // // //     errors = "Please remove any special characters from the text about yourself.";
+  // // //     displayModal(errors);
+  // // //   } else {
+  // // //     try {
+  // // //       let validationErrors = await validateEmail(emailContent);
+  // // //       if (validationErrors.length) {
+  // // //         errors = errorHandler(validationErrors);
+  // // //         displayModal(errors);
+  // // //       } else {
+  // // //         errors = "";
+  // // //         submitForm(emailContent);
+  // // //       }
+  // // //     } catch (err) {
+  // // //       errors = err;
+  // // //       displayModal(errors);
+  // // //     }
+  // // //   }
 
-    function submitForm(formData) {
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact-form", ...formData }),
-      })
-        .then((res) => {
-          console.log(res.status);
-          if (res.status === 404) {
-            displayModal("Location not found")
-          } else if (res.status === 200) {
-            displayModal("Request submitted successfully! Thank you.");
-            handleClear();
-          }
-        })
-        .catch((error) => displayModal(error));
-    }
-  };
+  // // //   function submitForm(formData) {
+  // // //     fetch("/", {
+  // // //       method: "POST",
+  // // //       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  // // //       body: encode({ "form-name": "contact-form", ...formData }),
+  // // //     })
+  // // //       .then((res) => {
+  // // //         console.log(res.status);
+  // // //         if (res.status === 404) {
+  // // //           displayModal("Location not found")
+  // // //         } else if (res.status === 200) {
+  // // //           displayModal("Request submitted successfully! Thank you.");
+  // // //           handleClear();
+  // // //         }
+  // // //       })
+  // // //       .catch((error) => displayModal(error));
+  // // //   }
+  // // // };
 
-  function encode(data) {
-    return Object.keys(data)
-        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-        .join("&")
-  }
+  // // // function encode(data) {
+  // // //   return Object.keys(data)
+  // // //       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+  // // //       .join("&")
+  // // // }
 
-  export let handleClear;
-  handleClear = () => {
-    errors = "";
-    for (const property in emailContent) {
-      emailContent[property] = "";
-    }
-  };
+  // // export let handleClear;
+  // // handleClear = () => {
+  // //   errors = "";
+  // //   for (const property in emailContent) {
+  // //     emailContent[property] = "";
+  // //   }
+  // // };
 
-  const errorHandler = (error) => {
-    if (fullNameErrorReg.test(error)) {
-      cleanedMessage = nameErrorMessage;
-    } else if (emailErrorReg.test(error)) {
-      cleanedMessage = emailErrorMessage;
-    } else if (phoneErrorReg.test(error)) {
-      cleanedMessage = phoneErrorMessage;
-    } else if (aboutErrorReg.test(error)) {
-      cleanedMessage = aboutErrorMessage;
-    }
-    return cleanedMessage;
-  };
+  // const errorHandler = (error) => {
+  //   if (fullNameErrorReg.test(error)) {
+  //     cleanedMessage = nameErrorMessage;
+  //   } else if (emailErrorReg.test(error)) {
+  //     cleanedMessage = emailErrorMessage;
+  //   } else if (phoneErrorReg.test(error)) {
+  //     cleanedMessage = phoneErrorMessage;
+  //   } else if (aboutErrorReg.test(error)) {
+  //     cleanedMessage = aboutErrorMessage;
+  //   }
+  //   return cleanedMessage;
+  // };
 
-  const displayModal = (message) => {
-    UIkit.modal.alert(message);
-  };
+  // const displayModal = (message) => {
+  //   UIkit.modal.alert(message);
+  // };
 </script>
 
 <!--Contact Form-->
@@ -116,26 +116,23 @@
       method="POST"
       action="/"
     >
+    <div class="hidden">
+      <label
+        >Don’t fill this out if you’re human: <input type="hidden"
+          name="botfield"
+        /></label
+      >
+    </div>
+    <input type='hidden' name='form-name' value='Contact Form' />
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
-        <div class="hidden">
-          <label
-            >Don’t fill this out if you’re human: <input
-              name="botfield"
-            /></label
-          >
-        </div>
-        <input type='hidden' name='form-name' value='Contact Form' />
         <div class="uk-form-controls">
           <input
             class="uk-input"
-            class:errors
             id="fullName"
             name="fullName"
             type="text"
             placeholder="First and Last name"
-            value={emailContent.fullName}
-            on:input={handleChange}
             aria-required="true"
             required="true"
           />
@@ -146,13 +143,10 @@
         <div class="uk-form-controls">
           <input
             class="uk-input"
-            class:errors
             id="emailAddress"
             name="emailAddress"
             type="email"
             placeholder="Email"
-            value={emailContent.emailAddress}
-            on:input={handleChange}
             aria-required="true"
             required="true"
           />
@@ -167,8 +161,6 @@
             name="phone"
             type="tel"
             placeholder="Phone Number"
-            value={emailContent.phone}
-            on:input={handleChange}
             aria-required="false"
             required="false"
           />
@@ -180,13 +172,10 @@
           <textarea
             rows="5"
             class="uk-textarea"
-            class:errors
             id="about"
             name="about"
             type="text"
-            placeholder="Tell me about yourself..."
-            value={emailContent.about}
-            on:input={handleChange}
+            placeholder="Tell me about yourself"
             aria-required="true"
             required="true"
           />
