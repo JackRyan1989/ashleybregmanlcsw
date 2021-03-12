@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "export": "sapper export --entry 'src/routes/index.svelte src/routes/thankyou.svelte'",
     "start": "node __sapper__/build",
     "test": "jest src",
     "test:watch": "npm run test -- --watch"

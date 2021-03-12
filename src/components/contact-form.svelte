@@ -114,7 +114,7 @@
       netlify-honeypot="botfield"
       class="uk-form-horizontal uk-margin-medium"
       method="POST"
-      action="index.html/"
+      action="/thankyou/"
     >
       <div class="uk-margin">
         <label class="uk-form-label" for="name">Full Name</label>
