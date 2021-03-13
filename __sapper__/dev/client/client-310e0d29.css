@@ -1,0 +1,10 @@
+.svelte-10vw7eq.svelte-10vw7eq{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline}@font-face{font-family:"brandon-grotesque";src:url("/assets/fonts/Brandon Grotesque/Web/Brandon-Grotesque-Web-Light.eot")
+      format("embedded-opentype"), 
+      url("/assets/fonts/Brandon Grotesque/Web/Brandon-Grotesque-Web-Light.woff")
+        format("woff"),
+      url("/assets/fonts/Brandon Grotesque/Web/Brandon-Grotesque-Web-Light.woff2")
+        format("woff2");font-style:normal}.page-wrapper.svelte-10vw7eq.svelte-10vw7eq{font-family:brandon-grotesque, Roboto, sans-serif;height:100vh;display:grid;grid-template-columns:minmax(50px, 1fr);grid-template-rows:min-content 1fr minmax(25px, max-content);gap:1px}.page-wrapper.svelte-10vw7eq *{@media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
+      }
+    }}@media(max-width: 600px){.page-wrapper.svelte-10vw7eq.svelte-10vw7eq{grid-template-columns:100%;grid-template-rows:auto}.page-wrapper.svelte-10vw7eq>.svelte-10vw7eq{grid-column:1 / -1 !important;grid-row:auto !important}}

@@ -28,7 +28,6 @@
 
   .page-wrapper {
     font-family: brandon-grotesque, Roboto, sans-serif;
-    background: white;
     height: 100vh;
     display: grid;
     grid-template-columns: minmax(50px, 1fr);

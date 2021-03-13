@@ -6,7 +6,7 @@
 <nav class="nav-wrapper">
   <div class="title-wrapper">
     <div class="headshot" />
-    <h1 class="name-card">Ashley Bregman <span>LCSW</span></h1>
+    <h1 class="name-card">Ashley Bregman, <span>LCSW</span> </h1>
   </div>
   <div class="fullsize">
     <Fullsizenav />
@@ -32,13 +32,6 @@
     grid-template-columns: 2fr 2fr;
     place-items: center;
     text-align: center;
-    color: #aaa !important;
-    margin: 0% 2%;
-  }
-
-  span {
-    font-size: 1ex;
-    color: #aaa !important;
   }
 
   .title-wrapper {
@@ -66,6 +59,10 @@
     padding: 15px;
     font-size: 2em;
     font-family: "brandon-grotesque";
+  }
+
+  span {
+    font-size: 0.80em;
   }
 
   /* Phone Screens, Landscape and Portrait modes */

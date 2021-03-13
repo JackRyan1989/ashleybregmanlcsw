@@ -7,16 +7,18 @@
   uk-scrollspy="target: .main-heading-box; cls: uk-animation-fade; delay: 250;"
 >
   <div class="main-heading-box">
-    <h1>Comprehensive Care and Counseling</h1>
+    <h1><strong>Compassionate, Affirming, Approachable Psychotherapy</strong></h1>
   </div>
 </div>
 
+
+<!-- Mobile -->
 <div
   class="no-parallax uk-cover-container hero-image-container"
   uk-scrollspy="target: .main-heading-box; cls: uk-animation-fade; delay: 250;"
 >
   <div class="main-heading-box">
-    <h1>Comprehensive Care and Counseling</h1>
+    <h1>Compassionate, Affirming, Approachable Psychotherapy</h1>
   </div>
 </div>
 
@@ -38,7 +40,7 @@
       rotateY(1deg);
     padding: 30px 15px;
     text-align: center;
-    background: rgba(170, 185, 173, 0.75);
+    background: rgba(206, 205, 201, 0.65);
     opacity: 1;
     -webkit-transition: all 0.1s;
     -moz-transition: -moz-transform all 0.1s;
@@ -52,7 +54,7 @@
   h1 {
     color: white !important;
     max-width: 60ch;
-    font-size: 4em;
+    font-size: 3.1em;
     letter-spacing: -2px;
     font-family: "brandon-grotesque";
   }
