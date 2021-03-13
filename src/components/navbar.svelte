@@ -42,7 +42,7 @@
   }
 
   .headshot {
-    background-image: url("https://picsum.photos/200");
+    background-image: url("/assets/images/ash2_test.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

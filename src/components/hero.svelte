@@ -7,7 +7,7 @@
   uk-scrollspy="target: .main-heading-box; cls: uk-animation-fade; delay: 250;"
 >
   <div class="main-heading-box">
-    <h1><strong>Compassionate, Affirming, Approachable Psychotherapy</strong></h1>
+    <h1><strong>Compassionate, Approachable Psychotherapy</strong></h1>
   </div>
 </div>
 
@@ -18,7 +18,7 @@
   uk-scrollspy="target: .main-heading-box; cls: uk-animation-fade; delay: 250;"
 >
   <div class="main-heading-box">
-    <h1>Compassionate, Affirming, Approachable Psychotherapy</h1>
+    <h1>Compassionate, Approachable Psychotherapy</h1>
   </div>
 </div>
 
