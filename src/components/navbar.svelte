@@ -1,12 +1,12 @@
 <script>
-  import Fullsizenav from './fullsize_nav.svelte';
-  import Hamburger from './hamburger_nav.svelte';
+  import Fullsizenav from "./fullsize_nav.svelte";
+  import Hamburger from "./hamburger_nav.svelte";
 </script>
 
 <nav class="nav-wrapper">
   <div class="title-wrapper">
     <div class="headshot" />
-    <h1 class="name-card">Ashley Bregman, <span>LCSW</span> </h1>
+    <h1 class="name-card">Ashley Bregman, <span>LCSW</span></h1>
   </div>
   <div class="fullsize">
     <Fullsizenav />
@@ -62,7 +62,7 @@
   }
 
   span {
-    font-size: 0.80em;
+    font-size: 0.8em;
   }
 
   /* Phone Screens, Landscape and Portrait modes */
@@ -80,9 +80,24 @@
     }
 
     .nav-wrapper {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+    }
+
+    .name-card {
+      font-size: 1.9em;
+    }
   }
 
+  /* Tablet */
+  @media only screen and (min-device-width: 767px) and (max-device-width: 1024px) {
+    .name-card {
+      font-size: 1.4em;
+    }
+
+    .nav-wrapper {
+      display: grid;
+      grid-template-columns: max-content max-content;
+    }
   }
 </style>

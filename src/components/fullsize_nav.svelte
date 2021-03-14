@@ -2,16 +2,18 @@
 </script>
 
 <ul class="link-wrapper">
-    <li class="link-item">
-      <a class="link" id="first" href="#about" uk-scroll>About Me</a>
-    </li>
-    <li class="link-item">
-      <a class="link" id="second" href="#specializations" uk-scroll>Practice and Specializations</a>
-    </li>
-    <li class="link-item">
-      <a class="link" id="third" href="#contact" uk-scroll>Contact Me</a>
-    </li>
-  </ul>
+  <li class="link-item">
+    <a class="link" id="first" href="#about" uk-scroll>About Me</a>
+  </li>
+  <li class="link-item">
+    <a class="link" id="second" href="#specializations" uk-scroll
+      >Practice and Specializations</a
+    >
+  </li>
+  <li class="link-item">
+    <a class="link" id="third" href="#contact" uk-scroll>Contact Me</a>
+  </li>
+</ul>
 
 <style>
   * {
@@ -92,19 +94,22 @@
       visibility: visible;
       height: 100%;
     }
+  }
+  /* Tablet */
+  @media only screen and (min-device-width: 767px) and (max-device-width: 1024px) {
+    .link-item {
+      padding: 0px !important;
+      font-size: 0.9em !important;
+    }
 
-    /* Tablet */
-    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-      .link:focus{
-        color: #fff !important;
-      }
+    .link:focus {
+      color: #fff !important;
+    }
 
-      .link:focus:after {
-        opacity: 1;
-        visibility: visible;
-        height: 100%;
-      }
+    .link:focus:after {
+      opacity: 1;
+      visibility: visible;
+      height: 100%;
     }
   }
 </style>
-
