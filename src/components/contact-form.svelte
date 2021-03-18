@@ -1,37 +1,37 @@
 <script>
-  import { onMount } from "svelte";
-  // MongoDB Realm stuff:
-  import * as Realm from "realm-web";
-  const app = new Realm.App({ id: "ashcontacts-aidqa" });
-  let mongodb;
-  let messageCollection;
-  // Create an anonymous credential
-  const credentials = Realm.Credentials.anonymous();
+  // import { onMount } from "svelte";
+  // // MongoDB Realm stuff:
+  // import * as Realm from "realm-web";
+  // const app = new Realm.App({ id: "ashcontacts-aidqa" });
+  // let mongodb;
+  // let messageCollection;
+  // // Create an anonymous credential
+  // const credentials = Realm.Credentials.anonymous();
 
-  function assert(condition, message) {
-    if (!condition) {
-      throw message || "Assertion failed";
-    }
-  }
-  async function login() {
-    try {
-      // Authenticate the user
-      const user = await app.logIn(credentials);
-      // `App.currentUser` updates to match the logged in user
-      assert(user.id === app.currentUser.id);
-      mongodb = app.currentUser.mongoClient("mongodb-atlas");
-      messageCollection = mongodb
-        .db("form-submissions")
-        .collection("entries");
-      return user;
-    } catch (err) {
-      console.error("Failed to log in", err);
-    }
-  }
+  // function assert(condition, message) {
+  //   if (!condition) {
+  //     throw message || "Assertion failed";
+  //   }
+  // }
+  // async function login() {
+  //   try {
+  //     // Authenticate the user
+  //     const user = await app.logIn(credentials);
+  //     // `App.currentUser` updates to match the logged in user
+  //     assert(user.id === app.currentUser.id);
+  //     mongodb = app.currentUser.mongoClient("mongodb-atlas");
+  //     messageCollection = mongodb
+  //       .db("form-submissions")
+  //       .collection("entries");
+  //     return user;
+  //   } catch (err) {
+  //     console.error("Failed to log in", err);
+  //   }
+  // }
 
-  onMount(() => {
-    login();
-  });
+  // onMount(() => {
+  //   login();
+  // });
 
   //Validation stuff:
   import { validateEmail } from "../validation/index";
@@ -67,13 +67,48 @@
     emailContent[event.target.id] = event.target.value;
   };
 
+  // export let handleSubmit;
+  // handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   let invalid = validateAbout(emailContent.about);
+  //   if (invalid) {
+  //     errors =
+  //       "Please remove any special characters from the text about yourself.";
+  //     displayModal(errors);
+  //   } else {
+  //     try {
+  //       let validationErrors = await validateEmail(emailContent);
+  //       if (validationErrors.length) {
+  //         errors = errorHandler(validationErrors);
+  //         displayModal(errors);
+  //       } else {
+  //         errors = "";
+  //         submitForm(emailContent);
+  //       }
+  //     } catch (err) {
+  //       errors = err;
+  //       displayModal(errors);
+  //     }
+  //   }
+  // };
+
+  //   async function submitForm(formData) {
+  //     try {
+  //       const result = await messageCollection.insertOne(formData);
+  //       displayModal("Request submitted successfully! Thank you.");
+  //       handleClear();
+  //     } catch (err) {
+  //       displayModal(err)
+  //       handleClear();
+  //     }
+  // };
+
   export let handleSubmit;
   handleSubmit = async (e) => {
     e.preventDefault();
     let invalid = validateAbout(emailContent.about);
     if (invalid) {
-      errors =
-        "Please remove any special characters from the text about yourself.";
+      errors = "Please remove any special characters from the text about yourself.";
       displayModal(errors);
     } else {
       try {
@@ -90,20 +125,30 @@
         displayModal(errors);
       }
     }
+    function submitForm(formData) {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact-form", ...formData }),
+      })
+        .then((res) => {
+          console.log(res.status);
+          if (res.status === 404) {
+            displayModal("Location not found")
+          } else if (res.status === 200) {
+            displayModal("Request submitted successfully! Thank you.");
+            handleClear();
+          }
+        })
+        .catch((error) => displayModal(error));
+    }
   };
-
-    async function submitForm(formData) {
-      try {
-        const result = await messageCollection.insertOne(formData);
-        console.log(result);
-        displayModal("Request submitted successfully! Thank you.");
-        handleClear();
-      } catch (err) {
-        console.log(err);
-        displayModal(err)
-        handleClear();
-      }
-  };
+  
+  function encode(data) {
+    return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&")
+}
 
   export let handleClear;
   handleClear = () => {
@@ -138,10 +183,18 @@
   class="uk-form-horizontal uk-margin-medium"
   on:submit={handleSubmit}
 >
-<div class="hidden uk-margin">
+<!-- <div class="hidden uk-margin">
   <label class="uk-form-label" for="botfield">If you are a human do not use this field!</label>
   <input id="botfield" name="botfield" on:input={handleChange}/>
+</div> -->
+<div class="hidden">
+  <label
+    >Don’t fill this out if you’re human: <input
+      name="botfield"
+    /></label
+  >
 </div>
+<input type='hidden' name='form-name' value='contact-form' />
   <div class="uk-margin">
     <label class="uk-form-label" for="name">Full Name</label>
     <div class="uk-form-controls">
