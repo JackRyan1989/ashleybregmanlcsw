@@ -21,8 +21,11 @@
   };
 
   const validateAbout = (input) => {
+    // const reg = new RegExp(
+    //   /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+(?<!\/\s\*)>/
+    // );
     const reg = new RegExp(
-      /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+(?<!\/\s\*)>/
+      /<([^"]+)>/
     );
     const found = reg.test(input);
     return found;
@@ -62,7 +65,6 @@
         body: encode({ "form-name": "contact-form", ...formData }),
       })
         .then((res) => {
-          console.log(res.status);
           if (res.status === 404) {
             displayModal("Location not found")
           } else if (res.status === 200) {
