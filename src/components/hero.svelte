@@ -57,6 +57,7 @@
     font-size: 3.1em;
     letter-spacing: -2px;
     font-family: "brandon-grotesque";
+    font-weight: lighter;
   }
 
   .no-parallax {

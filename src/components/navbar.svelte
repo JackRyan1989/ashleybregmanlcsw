@@ -57,8 +57,9 @@
 
   .name-card {
     padding: 15px;
-    font-size: 2em;
+    font-size: 1.95em;
     font-family: "brandon-grotesque";
+    font-weight:lighter;
   }
 
   span {
