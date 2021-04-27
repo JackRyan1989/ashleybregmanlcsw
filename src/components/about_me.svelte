@@ -58,7 +58,7 @@
   .title {
     max-width: 65ch;
     font-size: 2em;
-    border-bottom: solid 4px rgba(170, 185, 173, 0.75);
+    border-bottom: solid 2px rgba(170, 185, 173, 0.75);
     font-family: "brandon-grotesque";
   }
 

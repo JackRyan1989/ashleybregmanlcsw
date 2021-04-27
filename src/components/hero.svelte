@@ -25,7 +25,7 @@
 <style>
   .hero-image-container {
     height: 77vh;
-    background-image: url("/assets/images/dry_leaves.jpg");
+    background-image: url("/assets/images/dry_leaves_downsized_desktop.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -72,6 +72,7 @@
 
     .hero-image-container {
     height: 85vh;
+    background-image: url("/assets/images/dry_leaves_downsized_mobile.jpg");
     }
 
     .no-parallax {

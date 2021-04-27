@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta name="theme-color" content="#333333" />
+    <meta name="description" content="Compassionate, approachable psychotherapy."/>
 
     %sapper.base%
 
@@ -11,30 +11,32 @@
     <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="/uikit-3.6.17/css/uikit.css" />
-
-    <!-- UIkit JS -->
-    <script src="/uikit-3.6.17/js/uikit.min.js"></script>
-    <script src="/uikit-3.6.17/js/uikit-icons.min.js"></script>
     <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
 
     <!-- Sapper creates a <script> tag containing `src/client.js`
-	     and anything else it needs to hydrate the app and
-	     initialise the router -->
+      and anything else it needs to hydrate the app and
+      initialise the router -->
     %sapper.scripts%
 
     <!-- Sapper generates a <style> tag containing critical CSS
-	     for the current page. CSS for the rest of the app is
-	     lazily loaded when it precaches secondary pages -->
+        for the current page. CSS for the rest of the app is
+        lazily loaded when it precaches secondary pages -->
     %sapper.styles%
 
     <!-- This contains the contents of the <svelte:head> component, if
-	     the current page has one -->
+          the current page has one -->
     %sapper.head%
   </head>
   <body>
-    <script>0</script>
+    <!-- Prevent FUOC in FF -->
+    <script>
+      0;
+    </script>
     <!-- The application will be rendered inside this element,
-	     because `src/client.js` references it -->
+            because `src/client.js` references it -->
     <div id="sapper">%sapper.html%</div>
+    <!-- UIkit JS -->
+    <script src="/uikit-3.6.17/js/uikit.min.js"></script>
+    <script src="/uikit-3.6.17/js/uikit-icons.min.js"></script>
   </body>
 </html>
