@@ -22,10 +22,10 @@
       </thead>
       <tbody>
         <tr>
-          <td>(215)-123-1234</td>
+          <td>(267)-405-3334</td>
           <td
-            ><a href="mailto:ashleybregman@gmail.com" class="link-item"
-              ><span class="email-link" uk-icon="mail" /> ashleybregman[at]gmail[dot]com</a
+            ><a href="mailto:ashleybregman.lcsw@gmail.com" class="link-item"
+              ><span class="email-link" uk-icon="mail" /> ashleybregman[dot]lcsw[at]gmail[dot]com</a
             >
           </td>
         </tr>
@@ -52,6 +52,7 @@
   .non-lead {
     max-width: 80ch;
     margin: 1em 0;
+    font-size: 1.25em;
   }
 
   .title {

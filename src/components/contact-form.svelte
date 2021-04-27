@@ -21,9 +21,6 @@
   };
 
   const validateAbout = (input) => {
-    // const reg = new RegExp(
-    //   /<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+(?<!\/\s\*)>/
-    // );
     const reg = new RegExp(
       /<([^"]+)>/
     );
