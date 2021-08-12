@@ -4,7 +4,7 @@
   import Hero from "../components/hero.svelte";
   import About from "../components/about_me.svelte";
   import Specializations from "../components/specializations.svelte"
-  import Footer from "../components/footer.svelte";
+  //import Footer from "../components/footer.svelte";
 </script>
 
 <svelte:head>
@@ -20,7 +20,6 @@
     <Contact />
   </section>
 </main>
-<Footer />
 
 <style>
   main {
