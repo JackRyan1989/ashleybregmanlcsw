@@ -31,7 +31,7 @@
     height: 100vh;
     display: grid;
     grid-template-columns: minmax(50px, 1fr);
-    grid-template-rows: min-content 1fr minmax(25px, max-content);
+    grid-template-rows: min-content 1fr;
     gap: 1px;
   }
 
