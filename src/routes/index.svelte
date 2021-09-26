@@ -1,6 +1,5 @@
 <script>
   import Navbar from "../components/navbar.svelte";
-  import Contact from "../components/contact-me.svelte";
   import Hero from "../components/hero.svelte";
   import About from "../components/about_me.svelte";
   import Specializations from "../components/specializations.svelte"
@@ -17,7 +16,6 @@
   <section>
     <About />
     <Specializations />
-    <Contact />
   </section>
   <Footer/>
 </main>

@@ -32,6 +32,7 @@
         that everyone is deserving of the space to explore themselves and to
         seek relief and insight. I would be honored to do that work with you.
       </p>
+      <p>For more information about my practice, please visit my  <a href="https://psychologytoday.com/us/therapists/ashley-bregman-philadelphia-pa/863007" target="_blank" noreferrer>Psychology Today profile</a>.</p>
     </article>
   </section>
 </div>
