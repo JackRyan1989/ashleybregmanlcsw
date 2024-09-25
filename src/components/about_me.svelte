@@ -1,4 +1,11 @@
 <script>
+  const title =
+    "Hello and welcome! I'm so glad you're here. Here is a bit about me:";
+  const body = [
+    "I am a licensed clinical social worker in Pennsylvania working virtually. I work with adults with a wide range of concerns including depression, anxiety, identity exploration, and painful events or memories. I have particular experience and interest in relationships and attachment, perinatal mental health and early parenthood, and early adulthood transitions. My style in session is warm, engaging, collaborative, and conversational. I strive to create an affirming, nonjudgmental, and safe environment and encourage dialogue about our work together.",
+    "I received my master's in social work from Bryn Mawr College. My experience spans community behavioral health, college counseling, and private practice settings. Prior to becoming a therapist, I studied the humanities and worked in the higher education and nonprofit worlds.",
+    "Please reach out with any questions about my background or approach! I offer a free consultation -- I know that searching for a therapist can be tough work and that finding the right fit is something you must experience in conversation.",
+  ];
 </script>
 
 <div
@@ -6,33 +13,16 @@
 >
   <section class="body-content">
     <article class="content uk-article">
-      <h1 class="title uk-article-title" id="about">About Me</h1>
+      <h1 class="title uk-article-title" id="about">{title}</h1>
       <p>
-        Whether you are new to therapy or returning, seeking support with a
-        particular concern or unsure where to start&mdash;I welcome you.
-        In "therapy-speak," I work from a psychodynamic and relational
-        foundation. My goal is to help you get to the root of your concerns and
-        to explore patterns and narratives that might be contributing to
-        dissatisfaction in your life or your relationships. It also means that I
-        consider the therapeutic relationship to be important in its own right.
-        However, I also have specific training in the treatment of trauma and am
-        adept at addressing anxiety and serious mental illnesses that require a
-        balance of deeper, long-term work and skills-building.
+        {body[0]}
       </p>
       <p>
-        I received my master's degree in social work from the Bryn Mawr Graduate
-        School of Social Work and Social Research. My style in session tends to
-        be collaborative, warm, and candid. It is incredibly important to me to
-        create an environment that is safe and affirming and to practice with a
-        social-justice lens.
+        {body[1]}
       </p>
       <p>
-        My clients will sometimes say that they question whether they deserve to
-        be in therapy when there are so many people who suffer. It is my belief
-        that everyone is deserving of the space to explore themselves and to
-        seek relief and insight. I would be honored to do that work with you.
+        {body[2]}
       </p>
-      <p>For more information about my practice, please visit my  <a href="https://psychologytoday.com/us/therapists/ashley-bregman-philadelphia-pa/863007" target="_blank" noreferrer>Psychology Today profile</a>.</p>
     </article>
   </section>
 </div>

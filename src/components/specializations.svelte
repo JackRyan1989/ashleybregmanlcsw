@@ -9,11 +9,11 @@
         Practice and Specializations
       </h1>
       <ul>
-        <li>Depression</li>
-        <li>Anxiety</li>
-        <li>Relationship Concerns</li>
-        <li>Trauma</li>
-        <li>Loss</li>
+        <li>Psychodynamic</li>
+        <li>Relational</li>
+        <li>DBT</li>
+        <li>Perinatal mental health</li>
+        <li>Internal family systems</li>
       </ul>
     </article>
   </section>

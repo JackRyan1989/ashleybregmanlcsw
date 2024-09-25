@@ -1,10 +1,11 @@
 <script>
+  const year = new Date().getFullYear();
 </script>
 
-<p>2021 Ashley Bregman LCSW</p>
+<p>{year} Ashley Bregman LCSW</p>
 
 <style>
-    p {
-        margin-left: 2%;
-    }
+  p {
+    margin-left: 2%;
+  }
 </style>
