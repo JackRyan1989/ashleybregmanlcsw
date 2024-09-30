@@ -1,4 +1,5 @@
-<script></script>
+<script>
+</script>
 
 <div
   uk-scrollspy="target: .spec-content; cls: uk-animation-slide-right-medium; delay: 250;"
@@ -6,15 +7,21 @@
   <section class="body-content">
     <article class="spec-content uk-article">
       <h1 class="title uk-article-title" id="specializations">
-        Practice and Specializations
+        A little bit more about my background…
       </h1>
-      <ul>
-        <li>Psychodynamic</li>
-        <li>Relational</li>
-        <li>DBT</li>
-        <li>Perinatal mental health</li>
-        <li>Internal family systems</li>
-      </ul>
+      <p>
+        I received my master’s in social work from Bryn Mawr College. My therapy
+        experience spans community behavioral health, college counseling, and
+        private practice settings, and I am trained in relational psychodynamic
+        and dialectical behavior therapy (DBT) modalities. I have completed
+        specialty training in perinatal mental health, and have familiarity with
+        internal family systems and sensorimotor approaches. Prior to becoming a
+        therapist, I studied the humanities and worked in the higher education
+        and nonprofit worlds, and enjoy supporting clients through their own
+        career and life transitions. In my experience, there is so much in
+        common between the study of art of all kinds and exploring the human
+        experience. I am also a parent to two young children.
+      </p>
     </article>
   </section>
 </div>
@@ -45,14 +52,9 @@
     font-family: "brandon-grotesque";
   }
 
-  ul {
-    list-style-type: none;
-    margin: 1em 0;
-  }
-
-  li {
+  p {
     max-width: 75ch;
     font-size: 1.25em;
-    margin: 0.75% 0%;
+    margin: 1em 0%;
   }
 </style>

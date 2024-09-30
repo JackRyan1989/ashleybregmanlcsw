@@ -7,10 +7,9 @@
   uk-scrollspy="target: .main-heading-box; cls: uk-animation-fade; delay: 250;"
 >
   <div class="main-heading-box">
-    <h1><strong>Compassionate, Approachable Psychotherapy</strong></h1>
+    <h1><strong>Welcome! I&#8217;m so glad you&#8217;re here.</strong></h1>
   </div>
 </div>
-
 
 <!-- Mobile -->
 <div
@@ -18,13 +17,13 @@
   uk-scrollspy="target: .main-heading-box; cls: uk-animation-fade; delay: 250;"
 >
   <div class="main-heading-box">
-    <h1>Compassionate, Approachable Psychotherapy</h1>
+    <h1>Welcome! I&#8217;m so glad you&#8217;re here.</h1>
   </div>
 </div>
 
 <style>
   .hero-image-container {
-    height: 77vh;
+    height: 50vh;
     background-image: url("/assets/images/dry_leaves_downsized_desktop.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -40,7 +39,7 @@
       rotateY(1deg);
     padding: 30px 15px;
     text-align: center;
-    background: rgba(206, 205, 201, 0.65);
+    background: rgba(215, 229, 233, 0.85);
     opacity: 1;
     -webkit-transition: all 0.1s;
     -moz-transition: -moz-transform all 0.1s;
@@ -52,12 +51,13 @@
   }
 
   h1 {
-    color: white !important;
+    color: #000 !important;
     max-width: 60ch;
     font-size: 3.1em;
     letter-spacing: -2px;
     font-family: "brandon-grotesque";
     font-weight: lighter;
+    margin-bottom: 0;
   }
 
   .no-parallax {
@@ -71,8 +71,8 @@
     }
 
     .hero-image-container {
-    height: 85vh;
-    background-image: url("/assets/images/dry_leaves_downsized_mobile.jpg");
+      height: 85vh;
+      background-image: url("/assets/images/dry_leaves_downsized_mobile.jpg");
     }
 
     .no-parallax {

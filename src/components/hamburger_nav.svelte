@@ -19,6 +19,9 @@
           ><span class="uk-margin-small-right" />Practice and Specializations</a
         >
       </li>
+      <li>
+        <a href="#contact"><span class="uk-margin-small-right" />Contact</a>
+      </li>
     </ul>
   </div>
 </div>
@@ -51,5 +54,4 @@
   .uk-offcanvas-bar .uk-close {
     color: rgba(255, 255, 255, 1) !important;
   }
-
 </style>

@@ -5,7 +5,6 @@
 
 <nav class="nav-wrapper">
   <div class="title-wrapper">
-    <div class="headshot" />
     <h1 class="name-card">Ashley Bregman, <span>LCSW</span></h1>
   </div>
   <div class="fullsize">
@@ -28,27 +27,19 @@
 
   .nav-wrapper {
     display: grid;
+    margin: 0% 2%;
+    padding: 0% 2%;
     color: black !important;
     grid-template-columns: 2fr 2fr;
-    place-items: center;
+    align-items: center;
     text-align: center;
   }
 
   .title-wrapper {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex;
     padding: 2.5% 0%;
-  }
-
-  .headshot {
-    background-image: url("/assets/images/ash2_test.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 7rem;
-    height: 7rem;
-    border-radius: 100%;
   }
 
   .mobile {
@@ -56,10 +47,11 @@
   }
 
   .name-card {
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-size: 1.95em;
     font-family: "brandon-grotesque";
-    font-weight:lighter;
+    font-weight: lighter;
   }
 
   span {
@@ -68,10 +60,6 @@
 
   /* Phone Screens, Landscape and Portrait modes */
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
-    .headshot {
-      display: none;
-    }
-
     .fullsize {
       display: none;
     }

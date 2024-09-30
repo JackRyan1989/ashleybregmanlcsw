@@ -1,5 +1,5 @@
 <script>
-  import ContactForm from "./contact-form.svelte";
+  // import ContactForm from "./contact-form.svelte";
 </script>
 
 <div
@@ -10,9 +10,8 @@
     <h1 class="title" id="contact">Contact Me</h1>
     <!--Lead Text-->
     <p class="non-lead">
-      If you're curious about working together, I would love to hear from you. I
-      offer a free consultation to see if we'd be a good fit. You can reach me
-      by phone, email, or the contact form below.
+      I would love to hear from you. You can reach me by phone, email, or the
+      contact form below.
     </p>
     <table class="uk-table uk-table-responsive uk-table-justify uk-table-small">
       <thead>
@@ -32,7 +31,7 @@
         </tr>
       </tbody>
     </table>
-    <ContactForm />
+    <!-- <ContactForm /> -->
   </section>
 </div>
 

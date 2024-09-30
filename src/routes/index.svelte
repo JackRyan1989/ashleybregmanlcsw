@@ -2,7 +2,8 @@
   import Navbar from "../components/navbar.svelte";
   import Hero from "../components/hero.svelte";
   import About from "../components/about_me.svelte";
-  import Specializations from "../components/specializations.svelte"
+  import Specializations from "../components/specializations.svelte";
+  import ContactMe from "../components/contact-me.svelte";
   import Footer from "../components/footer.svelte";
 </script>
 
@@ -10,14 +11,15 @@
   <title>Ashley Bregman, LCSW</title>
 </svelte:head>
 
-<Navbar/>
+<Navbar />
 <main>
   <Hero />
   <section>
     <About />
     <Specializations />
+    <ContactMe />
   </section>
-  <Footer/>
+  <Footer />
 </main>
 
 <style>

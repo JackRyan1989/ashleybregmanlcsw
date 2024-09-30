@@ -10,6 +10,9 @@
       >Practice and Specializations</a
     >
   </li>
+  <li class="link-item">
+    <a class="link" id="third" href="#contact" uk-scroll>Contact</a>
+  </li>
 </ul>
 
 <style>
