@@ -37,8 +37,8 @@ html {
   }
 
 body, h1, h2, h3, h4, p,
-figure, blockquote, dl, dd {
-  margin-block-end: 0;
+figure, blockquote, dl, dd, ul {
+  margin: 0;
 }
 
 
@@ -96,14 +96,40 @@ header {
 }
 
 nav {
-    display: flex;
+    display: grid;
     flex-flow: row wrap;
     position: relative;
-}
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
 
-nav ul {
-    display: inline-flex;
-    flex-direction: column;
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      font-size: 16px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      text-underline-offset: 2.5px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+
+    @media screen and (min-width: 320px) {
+      li {
+        font-size: calc(16px * ((100vw - 320px) / 680));
+      }
+    }
+    @media screen and (min-width: 1000px) {
+      li {
+        font-size: 16px;
+      }
+    }
 }
 
 /* Main content */
@@ -111,23 +137,93 @@ nav ul {
 main {
     position: relative;
     display: block;
-    margin-top: 25vh;
+    margin-top: 8vh;
     padding-top: 3vh;
     padding-bottom: 3vh;
     padding-left: 3vw;
     padding-right: 3vw;
+
+    h2 {
+      margin-block-start: .5rem;
+      margin-block-end: .25rem;
+    }
+
+    p, li {
+      font-size: 16px;
+    }
+    @media screen and (min-width: 320px) {
+      p, li {
+        font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+      }
+    }
+    @media screen and (min-width: 1000px) {
+      p, li {
+        font-size: 22px;
+      }
+    }
 }
 
-p, li {
-    font-size: 16px;
+/* Hero */
+
+#hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-block-end: .5rem;
+    background-color: antiquewhite;
+    border-radius: 2%;
+  }
+
+  h1 {
+    text-align: center;
+    margin: auto;
+    padding: 3vh 3vw;
+  }
+
+img {
+  max-width: 100%;
+  border-radius: 2%;
+  max-height: 90vh;
+}
+
+@media screen and (min-width: 320px) {
+  h1 {
+    font-size: calc(32px + 6 * ((100vw - 320px) / 680));
+  }
+  p {
+    font-size: calc(20px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 28px;
+  }
+}
+}
+
+/* Callout */
+
+#callout {
+  p {
+    margin: 2rem auto;
+    padding: 0 2vw;
   }
   @media screen and (min-width: 320px) {
-    p, li {
-      font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    p {
+      font-size: calc(20px + 6 * ((100vw - 320px) / 680));
     }
   }
   @media screen and (min-width: 1000px) {
-    p, li {
-      font-size: 22px;
+    p {
+      font-size: 28px;
     }
   }
+}
