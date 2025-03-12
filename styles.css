@@ -70,13 +70,13 @@ h3, h4 {
   @media screen and (min-width: 320px) {
     h1, h2,
     h3, h4 {
-      font-size: calc(26px + 6 * ((100vw - 320px) / 680));
+      font-size: calc(16px * ((100vw - 320px) / 680));
     }
   }
   @media screen and (min-width: 1000px) {
     h1, h2,
     h3, h4 {
-      font-size: 26px;
+      font-size: 34px;
     }
   }
 
@@ -93,6 +93,8 @@ header {
     padding-bottom: 3vh;
     padding-left: 3vw;
     padding-right: 3vw;
+    max-height: 10vh;
+    overflow: hidden;
 }
 
 nav {
@@ -137,7 +139,7 @@ nav {
 main {
     position: relative;
     display: block;
-    margin-top: 8vh;
+    margin-top: 10vh;
     padding-top: 3vh;
     padding-bottom: 3vh;
     padding-left: 3vw;
@@ -169,26 +171,28 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  max-height: 90vh;
+  border-radius: 2%;
+  overflow: hidden;
 
   div {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     margin-block-end: .5rem;
-    background-color: antiquewhite;
+    background-color: hsla(28.42,100%,94.27%,1);
     border-radius: 2%;
   }
 
   h1 {
     text-align: center;
-    margin: auto;
+    margin: calc(50% - 3vh) 0;
     padding: 3vh 3vw;
   }
 
 img {
   max-width: 100%;
-  border-radius: 2%;
-  max-height: 90vh;
+  /* border-radius: 2%; */
 }
 
 @media screen and (min-width: 320px) {
@@ -212,6 +216,9 @@ img {
 /* Callout */
 
 #callout {
+
+  display: block;
+
   p {
     margin: 2rem auto;
     padding: 0 2vw;
