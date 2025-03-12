@@ -21,6 +21,11 @@ src:
     url("assets/fonts/LeagueSpartan-2.220/variable/WOFF2/LeagueSpartan-VF.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: 'IvyPresto';
+  src: url("assets/fonts/ivy_presto")
+}
+
 
 
 /* Simple CSS Reset from Picalili: https://piccalil.li/blog/a-more-modern-css-reset/ */
@@ -63,8 +68,9 @@ ol {
 h1, h2,
 h3, h4 {
   text-wrap: balance;
-  font-family: "Fanwood";
+  font-family: "IvyPresto";
   font-size: 26px;
+  letter-spacing: .5px;
 }
 
   @media screen and (min-width: 320px) {
