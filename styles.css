@@ -68,9 +68,9 @@ ol {
 h1, h2,
 h3, h4 {
   text-wrap: balance;
-  font-family: "IvyPresto";
   font-size: 26px;
   letter-spacing: .5px;
+  font-family: IvyPresto;
 }
 
   @media screen and (min-width: 320px) {
@@ -178,7 +178,7 @@ main {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   max-height: 90vh;
-  border-radius: 2%;
+  border-radius: 2rem/2rem;
   overflow: hidden;
 
   div {
@@ -187,7 +187,7 @@ main {
     grid-template-rows: 1fr;
     margin-block-end: .5rem;
     background-color: hsla(28.42,100%,94.27%,1);
-    border-radius: 2%;
+    /* border-radius: 2%; */
   }
 
   h1 {
@@ -224,19 +224,44 @@ img {
 #callout {
 
   display: block;
+  border-radius: 1rem / 1rem;
+  background-color: #f8b267;
+  margin: -5rem auto 0 auto;
+  padding: 2vh 7vw;
+  overflow: hidden;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  width: 90vw;
+  position: relative;
+  z-index: 1;
 
   p {
+    font-family: 'IvyPresto';
+    text-align: center;
+    color: rgb(42, 6, 99);
+    font-weight: bold;
     margin: 2rem auto;
-    padding: 0 2vw;
   }
   @media screen and (min-width: 320px) {
     p {
-      font-size: calc(20px + 6 * ((100vw - 320px) / 680));
+      font-size: calc(26px + 6 * ((100vw - 320px) / 680));
     }
   }
   @media screen and (min-width: 1000px) {
     p {
-      font-size: 28px;
+      font-size: 32px;
     }
+  }
+}
+
+/* Area of Focus */
+
+#areaOfFocus {
+  h2 {
+    padding: 1vh 1vw;
+    max-width: max-content;
+  }
+  div{
+    padding: 3vh 3vw;
   }
 }
