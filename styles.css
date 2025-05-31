@@ -1,3 +1,5 @@
+@import 'tailwindcss';
+
 /* Font Face definitions */
 @font-face {
     font-family: "Fanwood";
@@ -39,9 +41,14 @@ html {
     -moz-text-size-adjust: none;
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
+    scroll-behavior: smooth;
+
+    @media (prefers-reduced-motion: reduce) {
+      scroll-behavior: auto;
+    }
   }
 
-body, h1, h2, h3, h4, p,
+body, h1, h2, h3, h4,
 figure, blockquote, dl, dd, ul {
   margin: 0;
 }
@@ -60,17 +67,22 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-ul,
-ol {
-  list-style: none;
-}
-
 h1, h2,
 h3, h4 {
   text-wrap: balance;
   font-size: 32px;
   letter-spacing: .5px;
   font-family: IvyPresto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  text-underline-offset: 2.5px;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
   @media screen and (min-width: 320px) {
@@ -99,38 +111,24 @@ header {
     width: 100%;
     line-height: 1;
     overflow-wrap: break-word;
-    padding-top: 3vh;
     padding-bottom: 3vh;
     padding-left: 3vw;
     padding-right: 3vw;
     max-height: 10vh;
     overflow: hidden;
+    z-index: 10000;
 }
 
 nav {
-    display: grid;
-    flex-flow: row wrap;
-    position: relative;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr;
-
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    background-color: white;
     ul {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
       font-size: 16px;
     }
-
-    a {
-      text-decoration: none;
-      color: black;
-      text-underline-offset: 2.5px;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
 
     @media screen and (min-width: 320px) {
       li {
@@ -157,7 +155,7 @@ main {
 
     h2 {
       margin-block-start: .5rem;
-      margin-block-end: .25rem;
+      margin-block-end: 1.25rem;
     }
 
     p, li {
@@ -173,6 +171,10 @@ main {
         font-size: 22px;
       }
     }
+
+    a::after {
+      content: ' »'
+    }
 }
 
 /* Hero */
@@ -181,7 +183,9 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
-  max-height: 90vh;
+  max-height: 80vh;
+  max-width: 75vw;
+  margin: auto;
   border-radius: 2rem/2rem;
   overflow: hidden;
 
@@ -239,11 +243,9 @@ main {
 /* Callout */
 
 #callout {
-
-  display: block;
   border-radius: 1rem / 1rem;
-  background-color: #f8b267;
-  margin: -5rem auto 0 auto;
+  background-color: #fff9f3;
+  margin: 0 auto;
   padding: 2vh 7vw;
   overflow: hidden;
   line-height: 1.25;
@@ -254,28 +256,31 @@ main {
 
   p {
     font-family: 'IvyPresto';
-    text-align: center;
+    /* text-align: center; */
     font-weight: bold;
     margin: 2rem auto;
   }
   @media screen and (min-width: 320px) {
     p {
-      font-size: calc(26px + 6 * ((100vw - 320px) / 680));
+      font-size: calc(16px + 6 * ((100vw - 320px) / 680));
     }
   }
   @media screen and (min-width: 1000px) {
     p {
-      font-size: 32px;
+      font-size: 24px;
     }
   }
 }
 
 /* Area of Focus */
-
 #areaOfFocus {
   h2 {
-    padding: 1vh 1vw;
-    max-width: max-content;
+    background-color: #0097FE;
+    border: solid 5px #0097FE;
+    padding: .5rem;
+    border-radius: 10rem 2rem / 2rem 3rem;
+    width: max-content;
+    color: white;
   }
 }
 
@@ -284,12 +289,39 @@ main {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 1rem;
+
+  ul {
+    margin-left: 1rem;
+  }
+
+  li {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    list-style: circle;
+    margin-bottom: .25rem;
+  }
 }
 
-.areas-container li {
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  list-style: none;
-  margin-bottom: .25rem;
-  margin-left: 0px;
+#clinicalApproach {
+  h2 {
+    background-color: #0097FE;
+    border: solid 5px #0097FE;
+    padding: .5rem;
+    border-radius: 8rem 2rem / 2rem 4rem;
+    width: max-content;
+    color: white;
+  }
+}
+
+#insurance {
+  ul {
+    margin-left: 1rem;
+  }
+
+  li {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin-bottom: .25rem;
+    list-style: circle;
+  }
 }
