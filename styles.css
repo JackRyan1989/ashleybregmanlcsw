@@ -2,24 +2,24 @@
 
 /* Font Face definitions */
 @font-face {
-    font-family: "Fanwood";
-    src:
-      url("assets/fonts/fanwood-master/webfonts/fanwood-webfont.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
-
-@font-face {
-font-family: "Fanwood";
-src:
-    url("assets/fonts/fanwood-master/webfonts/fanwood-italic-webfont.woff") format("woff");
-font-weight: normal;
-font-style: italic;
+  font-family: "Fanwood";
+  src:
+    url("assets/fonts/fanwood-master/webfonts/fanwood-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-font-family: "LeagueSpartan";
-src:
+  font-family: "Fanwood";
+  src:
+    url("assets/fonts/fanwood-master/webfonts/fanwood-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "LeagueSpartan";
+  src:
     url("assets/fonts/LeagueSpartan-2.220/variable/WOFF2/LeagueSpartan-VF.woff2") format("woff2");
 }
 
@@ -38,37 +38,46 @@ src:
 }
 
 html {
-    -moz-text-size-adjust: none;
-    -webkit-text-size-adjust: none;
-    text-size-adjust: none;
-    scroll-behavior: smooth;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  scroll-behavior: smooth;
 
-    @media (prefers-reduced-motion: reduce) {
-      scroll-behavior: auto;
-    }
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
   }
+}
 
-body, h1, h2, h3, h4,
-figure, blockquote, dl, dd, ul {
+body,
+h1,
+h2,
+h3,
+h4,
+figure,
+blockquote,
+dl,
+dd,
+ul {
   margin: 0;
 }
 
 
 /* Styling for all descendents */
 body {
-    min-height: 100vh;
-    scroll-behavior: smooth;
-    font-family: LeagueSpartan;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1.2;
-    letter-spacing: inherit;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  font-family: LeagueSpartan;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: inherit;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2,
-h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   text-wrap: balance;
   font-size: 32px;
   letter-spacing: .5px;
@@ -85,96 +94,118 @@ a:hover {
   text-decoration: underline;
 }
 
-  @media screen and (min-width: 320px) {
-    h1, h2,
-    h3, h4 {
-      font-size: calc(16px * ((100vw - 320px) / 680));
-    }
-  }
-  @media screen and (min-width: 1000px) {
-    h1, h2,
-    h3, h4 {
-      font-size: 34px;
-    }
+@media screen and (min-width: 320px) {
+
+  h1,
+  h3,
+  h4 {
+    font-size: calc(16px * ((100vw - 320px) / 680));
   }
 
-  section:not(#hero, #callout) {
-    padding: 1rem;
+  h2 {
+    font-size: 2rem;
   }
+}
+
+@media screen and (min-width: 1000px) {
+
+  h1,
+  h3,
+  h4 {
+    font-size: 34px;
+  }
+}
+
+section:not(#hero, #callout) {
+  padding: 1rem;
+}
+
+section {
+  scroll-margin-top: 10vh;
+}
 
 /* Header */
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    line-height: 1;
-    overflow-wrap: break-word;
-    padding-bottom: 3vh;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    max-height: 10vh;
-    overflow: hidden;
-    z-index: 10000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  line-height: 1;
+  overflow-wrap: break-word;
+  padding-bottom: 3vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  max-height: 10vh;
+  overflow: hidden;
+  z-index: 10000;
 }
 
 nav {
-    padding-top: 3vh;
-    padding-bottom: 3vh;
-    background-color: white;
-    ul {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  background-color: white;
+
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: 320px) {
+    li {
+      font-size: calc(16px * ((100vw - 320px) / 680));
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    li {
       font-size: 16px;
     }
-
-    @media screen and (min-width: 320px) {
-      li {
-        font-size: calc(16px * ((100vw - 320px) / 680));
-      }
-    }
-    @media screen and (min-width: 1000px) {
-      li {
-        font-size: 16px;
-      }
-    }
+  }
 }
 
 /* Main content */
 
 main {
-    position: relative;
-    display: block;
-    margin-top: 10vh;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
-    padding-left: 3vw;
-    padding-right: 3vw;
+  position: relative;
+  display: block;
+  margin-top: 10vh;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
 
-    h2 {
-      margin-block-start: .5rem;
-      margin-block-end: 1.25rem;
-    }
+  h2 {
+    margin-block-start: .5rem;
+    margin-block-end: 1.25rem;
+  }
 
-    p, li {
-      font-size: 16px;
-    }
-    @media screen and (min-width: 320px) {
-      p, li {
-        font-size: calc(16px + 6 * ((100vw - 320px) / 680));
-      }
-    }
-    @media screen and (min-width: 1000px) {
-      p, li {
-        font-size: 22px;
-      }
-    }
+  p,
+  li {
+    font-size: 16px;
+  }
 
-    a::after {
-      content: ' »'
+  @media screen and (min-width: 320px) {
+
+    p,
+    li {
+      font-size: calc(16px + 6 * ((100vw - 320px) / 680));
     }
+  }
+
+  @media screen and (min-width: 1000px) {
+
+    p,
+    li {
+      font-size: 22px;
+    }
+  }
+
+  a::after {
+    content: ' »'
+  }
 }
 
 /* Hero */
@@ -194,7 +225,7 @@ main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     margin-block-end: .5rem;
-    background-color: hsla(28.42,100%,94.27%,1);
+    background-color: hsla(28.42, 100%, 94.27%, 1);
   }
 
   .hero-image {
@@ -208,22 +239,25 @@ main {
     padding: 3vh 3vw;
   }
 
-@media screen and (min-width: 320px) {
-  h1 {
-    font-size: calc(32px + 6 * ((100vw - 320px) / 680));
+  @media screen and (min-width: 320px) {
+    h1 {
+      font-size: calc(32px + 6 * ((100vw - 320px) / 680));
+    }
+
+    p {
+      font-size: calc(20px + 6 * ((100vw - 320px) / 680));
+    }
   }
-  p {
-    font-size: calc(20px + 6 * ((100vw - 320px) / 680));
+
+  @media screen and (min-width: 1000px) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 28px;
+    }
   }
-}
-@media screen and (min-width: 1000px) {
-  h1 {
-    font-size: 3rem;
-  }
-  p {
-    font-size: 28px;
-  }
-}
 }
 
 /* General */
@@ -260,11 +294,13 @@ main {
     font-weight: bold;
     margin: 2rem auto;
   }
+
   @media screen and (min-width: 320px) {
     p {
       font-size: calc(16px + 6 * ((100vw - 320px) / 680));
     }
   }
+
   @media screen and (min-width: 1000px) {
     p {
       font-size: 24px;
@@ -291,7 +327,7 @@ main {
   gap: 1rem;
 
   ul {
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
 
   li {

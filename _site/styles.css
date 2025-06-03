@@ -284,13 +284,20 @@ html {
     scroll-behavior: auto;
   }
 }
-body, h1, h2, h3, h4,
-figure, blockquote, dl, dd, ul {
+body,
+h1,
+h2,
+h3,
+h4,
+figure,
+blockquote,
+dl,
+dd,
+ul {
   margin: 0;
 }
 body {
   min-height: 100vh;
-  scroll-behavior: smooth;
   font-family: LeagueSpartan;
   font-style: normal;
   font-weight: normal;
@@ -299,8 +306,10 @@ body {
   text-transform: none;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2,
-h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   text-wrap: balance;
   font-size: 32px;
   letter-spacing: .5px;
@@ -315,19 +324,27 @@ a:hover {
   text-decoration: underline;
 }
 @media screen and (min-width: 320px) {
-  h1, h2,
-    h3, h4 {
+  h1,
+  h3,
+  h4 {
     font-size: calc(16px * ((100vw - 320px) / 680));
+  }
+  h2 {
+    font-size: 2rem;
   }
 }
 @media screen and (min-width: 1000px) {
-  h1, h2,
-    h3, h4 {
+  h1,
+  h3,
+  h4 {
     font-size: 34px;
   }
 }
 section:not(#hero, #callout) {
   padding: 1rem;
+}
+section {
+  scroll-margin-top: 10vh;
 }
 header {
   position: absolute;
@@ -377,16 +394,19 @@ main {
     margin-block-start: .5rem;
     margin-block-end: 1.25rem;
   }
-  p, li {
+  p,
+  li {
     font-size: 16px;
   }
   @media screen and (min-width: 320px) {
-    p, li {
+    p,
+    li {
       font-size: calc(16px + 6 * ((100vw - 320px) / 680));
     }
   }
   @media screen and (min-width: 1000px) {
-    p, li {
+    p,
+    li {
       font-size: 22px;
     }
   }
@@ -408,7 +428,7 @@ main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     margin-block-end: .5rem;
-    background-color: hsla(28.42,100%,94.27%,1);
+    background-color: hsla(28.42, 100%, 94.27%, 1);
   }
   .hero-image {
     background-image: url(./assets/images/Bregman_vertical.jpg);
@@ -490,7 +510,7 @@ main {
   grid-template-rows: 1fr;
   gap: 1rem;
   ul {
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
   li {
     font-size: 1.5rem;
