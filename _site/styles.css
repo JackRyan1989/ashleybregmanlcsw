@@ -168,20 +168,11 @@
   .static {
     position: static;
   }
-  .col-span-2 {
-    grid-column: span 2 / span 2;
-  }
   .col-span-7 {
     grid-column: span 7 / span 7;
   }
   .col-start-1 {
     grid-column-start: 1;
-  }
-  .col-start-5 {
-    grid-column-start: 5;
-  }
-  .col-start-6 {
-    grid-column-start: 6;
   }
   .col-start-8 {
     grid-column-start: 8;
@@ -189,17 +180,11 @@
   .col-end-5 {
     grid-column-end: 5;
   }
-  .col-end-6 {
-    grid-column-end: 6;
-  }
   .col-end-12 {
     grid-column-end: 12;
   }
   .m-0 {
     margin: calc(var(--spacing) * 0);
-  }
-  .m-auto {
-    margin: auto;
   }
   .mx-auto {
     margin-inline: auto;
@@ -225,9 +210,6 @@
   .grid {
     display: grid;
   }
-  .h-full {
-    height: 100%;
-  }
   .w-full {
     width: 100%;
   }
@@ -242,6 +224,10 @@
   }
   .grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .border-0 {
+    border-style: var(--tw-border-style);
+    border-width: 0px;
   }
   .bg-white {
     background-color: var(--color-white);
@@ -552,6 +538,11 @@ main {
     list-style: circle;
   }
 }
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-leading {
   syntax: "*";
   inherits: false;
@@ -559,6 +550,7 @@ main {
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-border-style: solid;
       --tw-leading: initial;
     }
   }
