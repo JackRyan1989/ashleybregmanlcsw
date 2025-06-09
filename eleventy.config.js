@@ -23,4 +23,5 @@ export default async function(eleventyConfig) {
       });
       eleventyConfig.addPassthroughCopy("assets/images");
       eleventyConfig.addPassthroughCopy("assets/fonts");
+      eleventyConfig.addWatchTarget("./styles.css");
 };
