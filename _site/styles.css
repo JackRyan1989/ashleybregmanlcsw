@@ -180,6 +180,12 @@
   .col-start-8 {
     grid-column-start: 8;
   }
+  .col-end-1 {
+    grid-column-end: 1;
+  }
+  .col-end-2 {
+    grid-column-end: 2;
+  }
   .col-end-3 {
     grid-column-end: 3;
   }
@@ -191,9 +197,6 @@
   }
   .m-0 {
     margin: calc(var(--spacing) * 0);
-  }
-  .mx-auto {
-    margin-inline: auto;
   }
   .my-1 {
     margin-block: calc(var(--spacing) * 1);
@@ -209,9 +212,6 @@
   }
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
-  }
-  .block {
-    display: block;
   }
   .grid {
     display: grid;
@@ -239,6 +239,27 @@
   }
   .p-7 {
     padding: calc(var(--spacing) * 7);
+  }
+  .p-\[7vh\] {
+    padding: 7vh;
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-\[2vh\] {
+    padding-inline: 2vh;
+  }
+  .py-\[7vh\] {
+    padding-block: 7vh;
+  }
+  .pt-\[7vh\] {
+    padding-top: 7vh;
+  }
+  .pr-2 {
+    padding-right: calc(var(--spacing) * 2);
+  }
+  .pb-\[7vh\] {
+    padding-bottom: 7vh;
   }
   .text-end {
     text-align: end;
