@@ -7,6 +7,21 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-600: oklch(57.7% 0.245 27.325);
+    --color-red-700: oklch(50.5% 0.213 27.518);
+    --color-orange-200: oklch(90.1% 0.076 70.697);
+    --color-orange-700: oklch(55.3% 0.195 38.402);
+    --color-yellow-200: oklch(94.5% 0.129 101.54);
+    --color-yellow-700: oklch(55.4% 0.135 66.442);
+    --color-green-200: oklch(92.5% 0.084 155.995);
+    --color-teal-200: oklch(91% 0.096 180.426);
+    --color-teal-700: oklch(51.1% 0.096 186.391);
+    --color-cyan-200: oklch(91.7% 0.08 205.041);
+    --color-cyan-700: oklch(52% 0.105 223.128);
+    --color-blue-200: oklch(88.2% 0.059 254.128);
+    --color-blue-300: oklch(80.9% 0.105 251.813);
+    --color-blue-400: oklch(70.7% 0.165 254.624);
+    --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-white: #fff;
     --spacing: 0.25rem;
     --leading-relaxed: 1.625;
@@ -14,6 +29,9 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-primary-300: #fff5ec;
+    --color-primary-400: #fff2e6;
+    --color-primary-600: #ccbfb3;
   }
 }
 @layer base {
@@ -168,29 +186,23 @@
   .static {
     position: static;
   }
-  .col-span-1 {
-    grid-column: span 1 / span 1;
-  }
   .col-span-7 {
     grid-column: span 7 / span 7;
   }
   .col-start-1 {
     grid-column-start: 1;
   }
+  .col-start-7 {
+    grid-column-start: 7;
+  }
   .col-start-8 {
     grid-column-start: 8;
   }
-  .col-end-1 {
-    grid-column-end: 1;
-  }
-  .col-end-2 {
-    grid-column-end: 2;
-  }
-  .col-end-3 {
-    grid-column-end: 3;
-  }
   .col-end-5 {
     grid-column-end: 5;
+  }
+  .col-end-6 {
+    grid-column-end: 6;
   }
   .col-end-12 {
     grid-column-end: 12;
@@ -204,8 +216,8 @@
   .mt-0 {
     margin-top: calc(var(--spacing) * 0);
   }
-  .mt-5 {
-    margin-top: calc(var(--spacing) * 5);
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
   }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
@@ -231,35 +243,59 @@
   .grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
+  .bg-blue-200 {
+    background-color: var(--color-blue-200);
+  }
+  .bg-blue-300 {
+    background-color: var(--color-blue-300);
+  }
+  .bg-blue-400 {
+    background-color: var(--color-blue-400);
+  }
+  .bg-cyan-200 {
+    background-color: var(--color-cyan-200);
+  }
+  .bg-green-200 {
+    background-color: var(--color-green-200);
+  }
+  .bg-orange-200 {
+    background-color: var(--color-orange-200);
+  }
+  .bg-primary-300 {
+    background-color: var(--color-primary-300);
+  }
+  .bg-primary-400 {
+    background-color: var(--color-primary-400);
+  }
+  .bg-primary-600 {
+    background-color: var(--color-primary-600);
+  }
+  .bg-red-600 {
+    background-color: var(--color-red-600);
+  }
+  .bg-red-700 {
+    background-color: var(--color-red-700);
+  }
+  .bg-teal-200 {
+    background-color: var(--color-teal-200);
+  }
   .bg-white {
     background-color: var(--color-white);
+  }
+  .bg-yellow-200 {
+    background-color: var(--color-yellow-200);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
-  .p-7 {
-    padding: calc(var(--spacing) * 7);
-  }
-  .p-\[7vh\] {
-    padding: 7vh;
-  }
-  .px-4 {
-    padding-inline: calc(var(--spacing) * 4);
-  }
   .px-\[2vh\] {
     padding-inline: 2vh;
-  }
-  .py-\[7vh\] {
-    padding-block: 7vh;
   }
   .pt-\[7vh\] {
     padding-top: 7vh;
   }
   .pr-2 {
     padding-right: calc(var(--spacing) * 2);
-  }
-  .pb-\[7vh\] {
-    padding-bottom: 7vh;
   }
   .text-end {
     text-align: end;
@@ -271,16 +307,160 @@
   .text-balance {
     text-wrap: balance;
   }
+  .decoration-blue-700 {
+    text-decoration-color: var(--color-blue-700);
+  }
+  .decoration-cyan-700 {
+    text-decoration-color: var(--color-cyan-700);
+  }
+  .decoration-orange-700 {
+    text-decoration-color: var(--color-orange-700);
+  }
+  .decoration-red-700 {
+    text-decoration-color: var(--color-red-700);
+  }
+  .decoration-teal-700 {
+    text-decoration-color: var(--color-teal-700);
+  }
+  .decoration-yellow-700 {
+    text-decoration-color: var(--color-yellow-700);
+  }
+  .decoration-wavy {
+    text-decoration-style: wavy;
+  }
+  .underline-offset-4 {
+    text-underline-offset: 4px;
+  }
+  .underline-offset-6 {
+    text-underline-offset: 6px;
+  }
+  .underline-offset-8 {
+    text-underline-offset: 8px;
+  }
   .transition {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .focus-within\:p-2 {
+    &:focus-within {
+      padding: calc(var(--spacing) * 2);
+    }
+  }
+  .hover\:underline {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-line: underline;
+      }
+    }
+  }
+  .hover\:decoration-blue-700 {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-color: var(--color-blue-700);
+      }
+    }
+  }
+  .hover\:decoration-cyan-700 {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-color: var(--color-cyan-700);
+      }
+    }
+  }
+  .hover\:decoration-orange-700 {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-color: var(--color-orange-700);
+      }
+    }
+  }
+  .hover\:decoration-red-700 {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-color: var(--color-red-700);
+      }
+    }
+  }
+  .hover\:decoration-teal-700 {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-color: var(--color-teal-700);
+      }
+    }
+  }
+  .hover\:decoration-yellow-700 {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-color: var(--color-yellow-700);
+      }
+    }
+  }
+  .hover\:decoration-wavy {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-style: wavy;
+      }
+    }
+  }
+  .hover\:underline-offset-8 {
+    &:hover {
+      @media (hover: hover) {
+        text-underline-offset: 8px;
+      }
+    }
+  }
+  .focus\:p-2 {
+    &:focus {
+      padding: calc(var(--spacing) * 2);
+    }
+  }
+  .focus\:underline {
+    &:focus {
+      text-decoration-line: underline;
+    }
+  }
+  .focus\:decoration-blue-700 {
+    &:focus {
+      text-decoration-color: var(--color-blue-700);
+    }
+  }
+  .focus\:decoration-cyan-700 {
+    &:focus {
+      text-decoration-color: var(--color-cyan-700);
+    }
+  }
+  .focus\:decoration-orange-700 {
+    &:focus {
+      text-decoration-color: var(--color-orange-700);
+    }
+  }
+  .focus\:decoration-red-700 {
+    &:focus {
+      text-decoration-color: var(--color-red-700);
+    }
+  }
+  .focus\:decoration-teal-700 {
+    &:focus {
+      text-decoration-color: var(--color-teal-700);
+    }
+  }
+  .focus\:decoration-yellow-700 {
+    &:focus {
+      text-decoration-color: var(--color-yellow-700);
+    }
+  }
+  .focus\:hover\:underline {
+    &:focus {
+      &:hover {
+        @media (hover: hover) {
+          text-decoration-line: underline;
+        }
+      }
+    }
+  }
 }
 :root {
-  --color-primary: hsl(29, 100%, 94%);
-  --color-secondary: hsl(209, 100%, 94%);
-  --color-secondary-border: hsl(209, 100%, 85%);
   --text-primary: black;
   --text-secondary: white;
 }
@@ -301,7 +481,7 @@
   src: url("assets/fonts/LeagueSpartan-2.220/variable/WOFF2/LeagueSpartan-VF.woff2") format("woff2");
 }
 @font-face {
-  font-family: 'IvyPresto';
+  font-family: "IvyPresto";
   src: url("assets/fonts/ivy_presto");
 }
 *,
@@ -346,18 +526,11 @@ h3,
 h4 {
   text-wrap: balance;
   font-size: 32px;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   font-family: IvyPresto;
 }
 a {
-  text-decoration: none;
   color: black;
-  text-underline-offset: 2.5px;
-}
-a:hover,
-a:focus,
-a:focus-within {
-  text-decoration: underline;
 }
 @media screen and (min-width: 320px) {
   h1,
@@ -382,9 +555,7 @@ section:not(#hero, #callout) {
 section {
   scroll-margin-top: 10vh;
   h2 {
-    background-color: var(--color-primary);
-    border: solid 5px var(--color-primary);
-    padding: .5rem;
+    padding: 0.5rem;
     width: max-content;
     color: black;
   }
@@ -408,7 +579,7 @@ nav {
   padding-top: 3vh;
   padding-bottom: 3vh;
   background-color: white;
-  ul {
+  & ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
@@ -434,7 +605,7 @@ main {
   padding-left: 3vw;
   padding-right: 3vw;
   h2 {
-    margin-block-start: .5rem;
+    margin-block-start: 0.5rem;
     margin-block-end: 1.25rem;
   }
   p,
@@ -454,7 +625,7 @@ main {
     }
   }
   a::after {
-    content: ' »';
+    content: " »";
   }
 }
 #hero {
@@ -470,8 +641,7 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    margin-block-end: .5rem;
-    background-color: var(--color-primary);
+    margin-block-end: 0.5rem;
   }
   .hero-image {
     background-image: url(./assets/images/Bregman_vertical.jpg);
@@ -512,8 +682,6 @@ main {
 }
 #callout {
   border-radius: 1rem / 1rem;
-  background-color: #fff9f3;
-  margin: 0 auto;
   padding: 2vh 7vw;
   overflow: hidden;
   line-height: 1.25;
@@ -521,8 +689,8 @@ main {
   width: 90vw;
   position: relative;
   z-index: 1;
-  p {
-    font-family: 'IvyPresto';
+  & p {
+    font-family: "IvyPresto";
     font-weight: bold;
     margin: 2rem auto;
   }
@@ -550,13 +718,11 @@ main {
     font-size: 1.5rem;
     line-height: 1.5rem;
     list-style: circle;
-    margin-bottom: .25rem;
+    margin-bottom: 0.25rem;
   }
 }
 .practice-addon {
-  background-color: var(--color-secondary);
   border-radius: 3rem 2rem / 2rem 3rem;
-  border: dashed 5px var(--color-secondary-border);
 }
 #clinicalApproach {
   h2 {
@@ -573,7 +739,7 @@ main {
   li {
     font-size: 1.5rem;
     line-height: 1.5rem;
-    margin-bottom: .25rem;
+    margin-bottom: 0.25rem;
     list-style: circle;
   }
 }
