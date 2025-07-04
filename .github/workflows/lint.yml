@@ -1,0 +1,43 @@
+---
+name: SuperLinter
+
+on: [push]
+
+jobs:
+  build:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: read
+      # To report GitHub Actions status checks
+      statuses: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          # super-linter needs the full git history to get the
+          # list of files that changed across commits
+          fetch-depth: 0
+
+      - name: Install dependencies
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version: "20"
+      - run: npm install
+
+      - name: Build site
+        run: npm run build
+
+      - name: Super-linter
+        uses: super-linter/super-linter@v7.4.0
+        env:
+          DEFAULT_BRANCH: v2
+          FILTER_REGEX_INCLUDE: .*(\_site).*
+          FILTER_REGEX_EXCLUDE: .*(\_site\/assets).*
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINTER_RULES_PATH: /
+          VALIDATE_CSS: true
+          VALIDATE_HTML: true
