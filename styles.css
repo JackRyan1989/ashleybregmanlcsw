@@ -1,5 +1,7 @@
+/* stylelint-disable-next-line import-notation */
 @import "tailwindcss";
 
+/* stylelint-disable-next-line at-rule-no-unknown */
 @theme {
   --color-primary-50: #fffdfc;
   --color-primary-100: #fffcf9;
@@ -11,7 +13,6 @@
   --color-primary-700: #998f86;
   --color-primary-800: #66605a;
   --color-primary-900: #33302d;
-
   --color-secondary-50: #f7fbff;
   --color-secondary-100: #f0f8ff;
   --color-secondary-200: #e1f0ff;
@@ -31,26 +32,26 @@
 
 /* Font Face definitions */
 @font-face {
-  font-family: "Fanwood";
+  font-family: Fanwood;
   src: url("assets/fonts/fanwood-master/webfonts/fanwood-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Fanwood";
+  font-family: Fanwood;
   src: url("assets/fonts/fanwood-master/webfonts/fanwood-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "LeagueSpartan";
+  font-family: LeagueSpartan;
   src: url("assets/fonts/LeagueSpartan-2.220/variable/WOFF2/LeagueSpartan-VF.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "IvyPresto";
+  font-family: IvyPresto;
   src: url("assets/fonts/ivy_presto");
 }
 
@@ -62,8 +63,6 @@
 }
 
 html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
   text-size-adjust: none;
   scroll-behavior: smooth;
 
@@ -88,7 +87,7 @@ ul {
 /* Styling for all descendents */
 body {
   min-height: 100vh;
-  font-family: LeagueSpartan;
+  font-family: LeagueSpartan, serif;
   font-style: normal;
   font-weight: normal;
   line-height: 1.2;
@@ -104,14 +103,14 @@ h4 {
   text-wrap: balance;
   font-size: 32px;
   letter-spacing: 0.5px;
-  font-family: IvyPresto;
+  font-family: IvyPresto, serif;
 }
 
 a {
   color: black;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (width >= 320px) {
   h1,
   h3,
   h4 {
@@ -123,16 +122,12 @@ a {
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (width >= 1000px) {
   h1,
   h3,
   h4 {
     font-size: 34px;
   }
-}
-
-section:not(#hero, #callout) {
-  padding: 1rem;
 }
 
 section {
@@ -143,6 +138,10 @@ section {
     width: max-content;
     color: black;
   }
+}
+
+section:not(#hero, #callout) {
+  padding: 1rem;
 }
 
 /* Header */
@@ -174,13 +173,13 @@ nav {
     font-size: 16px;
   }
 
-  @media screen and (min-width: 320px) {
+  @media screen and (width >= 320px) {
     li {
       font-size: calc(16px * ((100vw - 320px) / 680));
     }
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (width >= 1000px) {
     li {
       font-size: 16px;
     }
@@ -193,14 +192,10 @@ main {
   position: relative;
   display: block;
   margin-top: 10vh;
-  padding-top: 3vh;
-  padding-bottom: 3vh;
-  padding-left: 3vw;
-  padding-right: 3vw;
+  padding: 3vh 3vw;
 
   h2 {
-    margin-block-start: 0.5rem;
-    margin-block-end: 1.25rem;
+    margin-block: 0.5rem 1.25rem;
   }
 
   p,
@@ -208,14 +203,14 @@ main {
     font-size: 16px;
   }
 
-  @media screen and (min-width: 320px) {
+  @media screen and (width >= 320px) {
     p,
     li {
       font-size: calc(16px + 6 * ((100vw - 320px) / 680));
     }
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (width >= 1000px) {
     p,
     li {
       font-size: 22px;
@@ -236,7 +231,7 @@ main {
   max-height: 80vh;
   max-width: 75vw;
   margin: auto;
-  border-radius: 2rem/2rem;
+  border-radius: 2rem / 2rem;
   overflow: hidden;
 
   div {
@@ -247,7 +242,7 @@ main {
   }
 
   .hero-image {
-    background-image: url(./assets/images/Bregman_vertical.jpg);
+    background-image: url("./assets/images/Bregman_vertical.jpg");
     background-size: cover;
   }
 
@@ -257,7 +252,7 @@ main {
     padding: 3vh 3vw;
   }
 
-  @media screen and (min-width: 320px) {
+  @media screen and (width >= 320px) {
     h1 {
       font-size: calc(32px + 6 * ((100vw - 320px) / 680));
     }
@@ -267,7 +262,7 @@ main {
     }
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (width >= 1000px) {
     h1 {
       font-size: 3rem;
     }
@@ -285,9 +280,9 @@ main {
   position: absolute;
   overflow: hidden;
   clip: rect(0 0 0 0);
-  height: 1;
-  width: 1;
-  margin: -1;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
   padding: 0;
   border: 0;
 }
@@ -305,18 +300,18 @@ main {
   z-index: 1;
 
   & p {
-    font-family: "IvyPresto";
+    font-family: IvyPresto, serif;
     font-weight: bold;
     margin: 2rem auto;
   }
 
-  @media screen and (min-width: 320px) {
+  @media screen and (width >= 320px) {
     p {
       font-size: calc(16px + 6 * ((100vw - 320px) / 680));
     }
   }
 
-  @media screen and (min-width: 1000px) {
+  @media screen and (width >= 1000px) {
     p {
       font-size: 24px;
     }
@@ -324,7 +319,7 @@ main {
 }
 
 /* Area of Focus */
-#areaOfFocus {
+#area-of-focus {
   h2 {
     border-radius: 10rem 2rem / 2rem 3rem;
   }
@@ -347,7 +342,7 @@ main {
   border-radius: 3rem 2rem / 2rem 3rem;
 }
 
-#clinicalApproach {
+#clinical-approach {
   h2 {
     border-radius: 8rem 2rem / 2rem 4rem;
   }
@@ -372,6 +367,6 @@ main {
 
 #biography {
   h2 {
-    border-radius: 4rem 1rem / 1rem 1rem;
+    border-radius: 4rem 1rem / 1rem;
   }
 }
