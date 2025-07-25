@@ -31,13 +31,8 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Super-linter
-        uses: super-linter/super-linter@v7.4.0
-        env:
-          DEFAULT_BRANCH: v2
-          FILTER_REGEX_INCLUDE: .*(\_site).*
-          FILTER_REGEX_EXCLUDE: .*(\_site\/assets).*
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LINTER_RULES_PATH: /
-          VALIDATE_CSS: true
-          VALIDATE_HTML: true
+      - name: Lint HTML
+        run: npm run lint:html
+
+      - name: Lint CSS
+        run: npm run lint:css
