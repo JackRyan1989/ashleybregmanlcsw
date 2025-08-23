@@ -28,6 +28,7 @@
 :root {
   --text-primary: black;
   --text-secondary: white;
+  --background-primary: #fffdf5;
 }
 
 /* Font Face definitions */
@@ -94,6 +95,7 @@ body {
   letter-spacing: inherit;
   text-transform: none;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--background-primary);
 }
 
 h1,
@@ -164,7 +166,7 @@ header {
 nav {
   padding-top: 3vh;
   padding-bottom: 3vh;
-  background-color: white;
+  background-color: var(--background-primary);
 
   & ul {
     display: grid;
