@@ -25,3 +25,12 @@ export default async function(eleventyConfig) {
       eleventyConfig.addPassthroughCopy("assets/fonts");
       eleventyConfig.addWatchTarget("./styles.css");
 };
+
+export const config = {
+	dir: {
+		input: "content",
+		includes: "../_includes",
+		data: "../_data",
+		output: "_site"
+	}
+}
