@@ -1,11 +1,11 @@
 <header class="mt-0 bg-white">
   <nav class="fixed w-full grid grid-cols-12">
-    <h2 class="text-balance grid col-span-7 grid-cols-1">Ashley Bregman, LCSW</h2>
+    <h2 class="text-balance grid col-span-7 grid-cols-1"><a href="/">Ashley Bregman, LCSW</a></h2>
     <ul class="grid col-start-8 col-end-12 grid-cols-2">
       {% for link in navigation %}
         <li class="my-1">
           <a
-            class="text-end p-2 focus:underline hover:underline underline-offset-4 decoration-wavy"
+            class="text-end p-2 focus:underline hover:underline underline-offset-4 decoration-wavy decoration-green-900"
             href="{{ link.endpoint }}"
           >
             {{ link.text }}
