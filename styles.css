@@ -23,6 +23,7 @@
   --color-secondary-700: #6b8399;
   --color-secondary-800: #485766;
   --color-secondary-900: #242c33;
+  --background-primary: #fffdf5;
 }
 
 :root {
@@ -166,24 +167,16 @@ header {
 nav {
   padding-top: 3vh;
   padding-bottom: 3vh;
-  background-color: var(--background-primary);
+
+  /* background-color: var(--background-primary); */
 
   & ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    font-size: 16px;
+    font-size: 1.25rem;
   }
 
   @media screen and (width >= 320px) {
     li {
       font-size: calc(16px * ((100vw - 320px) / 680));
-    }
-  }
-
-  @media screen and (width >= 1000px) {
-    li {
-      font-size: 16px;
     }
   }
 }
