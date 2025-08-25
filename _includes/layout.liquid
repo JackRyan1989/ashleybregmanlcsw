@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="{{ metadata.description }}"
+    >
+    <link rel="stylesheet" href="../styles.css">
+    <title>
+      Ashley Bregman, LCSW --
+      {{ title }}
+    </title>
+  </head>
+
+  <body>
+    {% include 'header.liquid' %}
+    <main>
+      <div id="{{ id }}">
+        <h2 class="bg-orange-200">{{ title }}</h2>
+        {{ content }}
+      </div>
+    </main>
+    {% include 'footer.liquid' %}
+  </body>
+</html>

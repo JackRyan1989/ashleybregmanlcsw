@@ -1,0 +1,367 @@
+/* stylelint-disable-next-line import-notation */
+@import "tailwindcss";
+
+/* stylelint-disable-next-line at-rule-no-unknown */
+@theme {
+  --color-primary-50: #fffdfc;
+  --color-primary-100: #fffcf9;
+  --color-primary-200: #fff9f3;
+  --color-primary-300: #fff5ec;
+  --color-primary-400: #fff2e6;
+  --color-primary-500: #ffefe0;
+  --color-primary-600: #ccbfb3;
+  --color-primary-700: #998f86;
+  --color-primary-800: #66605a;
+  --color-primary-900: #33302d;
+  --color-secondary-50: #f7fbff;
+  --color-secondary-100: #f0f8ff;
+  --color-secondary-200: #e1f0ff;
+  --color-secondary-300: #d1e9ff;
+  --color-secondary-400: #c2e1ff;
+  --color-secondary-500: #b3daff;
+  --color-secondary-600: #8faecc;
+  --color-secondary-700: #6b8399;
+  --color-secondary-800: #485766;
+  --color-secondary-900: #242c33;
+  --background-primary: #fffdf5;
+}
+
+:root {
+  --text-primary: black;
+  --text-secondary: white;
+  --background-primary: #fffdf5;
+}
+
+/* Font Face definitions */
+@font-face {
+  font-family: Fanwood;
+  src: url("assets/fonts/fanwood-master/webfonts/fanwood-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Fanwood;
+  src: url("assets/fonts/fanwood-master/webfonts/fanwood-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: LeagueSpartan;
+  src: url("assets/fonts/LeagueSpartan-2.220/variable/WOFF2/LeagueSpartan-VF.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IvyPresto;
+  src: url("assets/fonts/ivy_presto");
+}
+
+/* Simple CSS Reset from Picalili: https://piccalil.li/blog/a-more-modern-css-reset/ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  text-size-adjust: none;
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+figure,
+blockquote,
+dl,
+dd,
+ul {
+  margin: 0;
+}
+
+/* Styling for all descendents */
+body {
+  min-height: 100vh;
+  font-family: LeagueSpartan, serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: inherit;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--background-primary);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+  font-size: 32px;
+  letter-spacing: 0.5px;
+  font-family: IvyPresto, serif;
+}
+
+a {
+  color: black;
+}
+
+@media screen and (width >= 320px) {
+  h1,
+  h3,
+  h4 {
+    font-size: calc(16px * ((100vw - 320px) / 680));
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (width >= 1000px) {
+  h1,
+  h3,
+  h4 {
+    font-size: 34px;
+  }
+}
+
+section {
+  scroll-margin-top: 10vh;
+
+  h2 {
+    padding: 0.5rem;
+    width: max-content;
+    color: black;
+  }
+}
+
+section:not(#hero, #callout) {
+  padding: 1rem;
+}
+
+/* Header */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  line-height: 1;
+  overflow-wrap: break-word;
+  padding-bottom: 3vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  max-height: 10vh;
+  overflow: hidden;
+  z-index: 10000;
+}
+
+nav {
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+
+  /* background-color: var(--background-primary); */
+
+  & ul {
+    font-size: 1.25rem;
+  }
+
+  @media screen and (width >= 320px) {
+    li {
+      font-size: calc(16px * ((100vw - 320px) / 680));
+    }
+  }
+}
+
+/* Main content */
+
+main {
+  position: relative;
+  display: block;
+  margin-top: 10vh;
+  padding: 3vh 3vw;
+
+  h2 {
+    margin-block: 0.5rem 1.25rem;
+  }
+
+  p,
+  li {
+    font-size: 16px;
+  }
+
+  @media screen and (width >= 320px) {
+    p,
+    li {
+      font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    }
+  }
+
+  @media screen and (width >= 1000px) {
+    p,
+    li {
+      font-size: 22px;
+    }
+  }
+
+  a::after {
+    content: " »";
+  }
+}
+
+/* Hero */
+
+#hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  max-height: 80vh;
+  max-width: 75vw;
+  margin: auto;
+  border-radius: 2rem / 2rem;
+  overflow: hidden;
+
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-block-end: 0.5rem;
+  }
+
+  .hero-image {
+    background-image: url("./assets/images/Bregman_vertical.jpg");
+    background-size: cover;
+  }
+
+  h1 {
+    text-align: center;
+    margin: calc(50% - 3vh) 0;
+    padding: 3vh 3vw;
+  }
+
+  @media screen and (width >= 320px) {
+    h1 {
+      font-size: calc(32px + 6 * ((100vw - 320px) / 680));
+    }
+
+    p {
+      font-size: calc(20px + 6 * ((100vw - 320px) / 680));
+    }
+  }
+
+  @media screen and (width >= 1000px) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 28px;
+    }
+  }
+}
+
+/* General */
+
+.visually-hidden {
+  display: inline-block;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+/* Callout */
+
+#callout {
+  border-radius: 1rem / 1rem;
+  padding: 2vh 7vw;
+  overflow: hidden;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  width: 90vw;
+  position: relative;
+  z-index: 1;
+
+  & p {
+    font-family: IvyPresto, serif;
+    font-weight: bold;
+    margin: 2rem auto;
+  }
+
+  @media screen and (width >= 320px) {
+    p {
+      font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    }
+  }
+
+  @media screen and (width >= 1000px) {
+    p {
+      font-size: 24px;
+    }
+  }
+}
+
+/* Area of Focus */
+#area-of-focus {
+  h2 {
+    border-radius: 10rem 2rem / 2rem 3rem;
+  }
+}
+
+.areas-container {
+  ul {
+    margin-left: 2rem;
+  }
+
+  li {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    list-style: circle;
+    margin-bottom: 0.25rem;
+  }
+}
+
+.practice-addon {
+  border-radius: 3rem 2rem / 2rem 3rem;
+}
+
+#clinical-approach {
+  h2 {
+    border-radius: 8rem 2rem / 2rem 4rem;
+  }
+}
+
+#insurance {
+  h2 {
+    border-radius: 7rem 2rem / 4rem 5rem;
+  }
+
+  ul {
+    margin-left: 1rem;
+  }
+
+  li {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin-bottom: 0.25rem;
+    list-style: circle;
+  }
+}
+
+#biography {
+  h2 {
+    border-radius: 4rem 1rem / 1rem;
+  }
+}
