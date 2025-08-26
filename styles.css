@@ -299,18 +299,6 @@ main {
     font-weight: bold;
     margin: 2rem auto;
   }
-
-  @media screen and (width >= 320px) {
-    p {
-      font-size: calc(16px + 6 * ((100vw - 320px) / 680));
-    }
-  }
-
-  @media screen and (width >= 1000px) {
-    p {
-      font-size: 24px;
-    }
-  }
 }
 
 /* Area of Focus */
