@@ -1,10 +1,8 @@
 <section id="biography">
   <h2 class="bg-orange-200">Who I Am</h2>
-  <p class="lg:text-2xl md:text-xl">
-    I received my master's in social work from Bryn Mawr College. My therapy experience spans community behavioral
-    health, college counseling, and private practice settings. Prior to becoming a therapist, I studied the humanities
-    and worked in the higher education and nonprofit worlds. In my experience, there is so much in common between the
-    study of art of all kinds and exploring the human experience. I am also a parent to two young children, one of whom
-    is neurodivergent.
-  </p>
+  {% for paragraph in bio %}
+    <p class="lg:text-2xl md:text-xl">
+      {{ paragraph }}
+    </p>
+  {% endfor %}
 </section>

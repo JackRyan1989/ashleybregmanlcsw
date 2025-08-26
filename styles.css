@@ -107,10 +107,15 @@ h4 {
   font-size: 32px;
   letter-spacing: 0.5px;
   font-family: IvyPresto, serif;
+  max-width: max-content;
 }
 
 a {
   color: black;
+}
+
+p:not(:first-child) {
+  margin-block-start: 1rem;
 }
 
 @media screen and (width >= 320px) {
@@ -135,12 +140,6 @@ a {
 
 section {
   scroll-margin-top: 10vh;
-
-  h2 {
-    padding: 0.5rem;
-    width: max-content;
-    color: black;
-  }
 }
 
 section:not(#hero, #callout) {
@@ -156,9 +155,6 @@ header {
   width: 100%;
   line-height: 1;
   overflow-wrap: break-word;
-  padding-bottom: 3vh;
-  padding-left: 3vw;
-  padding-right: 3vw;
   max-height: 10vh;
   overflow: hidden;
   z-index: 10000;
@@ -167,17 +163,10 @@ header {
 nav {
   padding-top: 3vh;
   padding-bottom: 3vh;
-
-  /* background-color: var(--background-primary); */
+  background-color: var(--background-primary);
 
   & ul {
     font-size: 1.25rem;
-  }
-
-  @media screen and (width >= 320px) {
-    li {
-      font-size: calc(16px * ((100vw - 320px) / 680));
-    }
   }
 }
 
@@ -193,7 +182,6 @@ main {
     margin-block: 0.5rem 1.25rem;
   }
 
-  p,
   li {
     font-size: 16px;
   }
@@ -290,14 +278,12 @@ main {
   overflow: hidden;
   line-height: 1.25;
   letter-spacing: 1px;
-  width: 90vw;
   position: relative;
   z-index: 1;
 
   & p {
     font-family: IvyPresto, serif;
     font-weight: bold;
-    margin: 2rem auto;
   }
 }
 

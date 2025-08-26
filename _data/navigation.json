@@ -1,4 +1,5 @@
 [
+        {"endpoint": "/about-me", "text": "About Me"},
         {"endpoint": "/approach", "text": "Approach"},
         {"endpoint": "/services", "text": "Services"},
         {"endpoint": "/contact", "text": "Contact"}
